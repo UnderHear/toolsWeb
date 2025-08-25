@@ -1,0 +1,25 @@
+<template>
+  <header class="main-header">
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'MainHeader'
+}
+</script>
+
+<style scoped>
+.main-header {
+  width: 100%;
+  height: 100px;
+  background-color: #f8f9fa; /* Adding a background color to make it visible */
+  border-bottom: 1px solid #d0d0d0b1;
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    height: 70px;
+  }
+}
+</style>

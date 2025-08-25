@@ -1,0 +1,455 @@
+<template>
+	<div class="home">
+		<div class="container">
+			<div class="left-column">
+				<div class="profile">
+					<div class="profile-header">
+						<img src="../assets/Home/avatar.png" alt="Neko" class="avatar">
+						<div class="profile-info">
+							<div class="name">Zsir</div>
+							<div class="views"><img src="../assets/Home/views.png" alt="views"
+									style="width: 18px; height: 18px; margin-right: 4px; vertical-align: middle;">1
+							</div>
+						</div>
+					</div>
+					<p class="bio-en">Be interested in cutting-edge, advanced, and popular technologies and keep
+						exploring them.</p>
+					<p class="bio-cn">对前沿、先进和热门的技术感兴趣并保持探索。</p>
+					<div class="links">
+						<ul>
+							<li><img src="../assets/Home/location.png" alt="location"><span>Hangzhou, China</span></li>
+							<li><img src="../assets/Home/time.png" alt="time"><span>17:30 <span class="time-suffix">-
+										same time</span></span></li>
+							<li><img src="../assets/Home/email.png" alt="email"><span><a
+										href="mailto:2533643340@qq.com">2533643340@qq.com</a></span></li>
+							<li><img src="../assets/Home/github.png" alt="github"><span><a
+										href="https://github.com/zhangchengwei5834"
+										target="_blank">@zhangchengwei5834</a></span></li>
+							<li><img src="../assets/Home/facebook.png" alt="facebook"><span><a
+										href="https://www.facebook.com/profile.php?id=100091494675623" target="_blank"
+										rel="noopener noreferrer">@张成炜</a></span></li>
+							<li><img src="../assets/Home/x.png" alt="x"><span><a href="https://x.com/zhangch94743257"
+										target="_blank" rel="noopener noreferrer">@zhangch94743257</a></span></li>
+							<li><img src="../assets/Home/phone.png" alt="phone"><span><a href="tel:+8619858170547"><span
+											class="country-code">+86 </span>19858170547</a></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="right-column">
+				<div class="personal-introduction">通过以下这些来了解我 Learn about me through the following</div>
+				<div class="greeting">你好 Hello 🤗</div>
+				<div class="tip-section">
+					<div class="tip-header">
+						<span class="tip-icon"><img src="../assets/Home/idea.png" alt="idea"
+								style="width: 20px; height: 20px;"></span>
+						<span class="tip-title">Tip</span>
+					</div>
+					<div class="tip-content">
+						<div class="description-en">
+							Certainly! I am currently taking on some part-time projects, including but not limited to
+							website development, mini-program development, management systems, and enterprise platforms.
+							I am currently delving into the fields of artificial intelligence and machine learning. If
+							you have related needs or would like to exchange ideas technically, feel free to reach out
+							to me.
+						</div>
+						<div class="description-cn">
+							目前我会接一些兼职项目，项目包括但不限于网站开发、小程序开发、管理系统、企业平台。目前我正在钻研的方向是人工智能与机器学习。如果你对此有需要或者想和我进行技术交流请联系我。
+						</div>
+					</div>
+				</div>
+
+				<div class="languages">
+					<h4>我使用的语言、框架和工具 Languages & Frameworks & Tools I use</h4>
+
+					<div class="language-icons">
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg"
+							class="language-icon" />
+						<img src="https://img.xz7.com/up/2020-7/2020728119283636.png" class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/neo4j/neo4j-original.svg"
+							class="language-icon" />
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+							class="language-icon" />
+					</div>
+
+				</div>
+				<div class="sessions">
+					<h4>个人项目经历</h4>
+					<p></p>
+					<div class="session-list">
+						<div class="session">
+							<p>2025.05.11 @ Hong Kong KubeCon</p>
+							<p>Links: Slides</p>
+						</div>
+						<div class="session">
+							<p>2025.05.10 @ Hangzhou Demo Day</p>
+							<p>Links: Slides</p>
+						</div>
+						<div class="session">
+							<p>2025.04.12 @ Shanghai 极速空间</p>
+							<p>Links: Slides</p>
+						</div>
+					</div>
+				</div>
+				<div class="projects">
+					<h2>有趣的项目 Highlights</h2>
+				</div>
+				<div class="pinned">
+					<h2>Pinned</h2>
+					<div class="pinned-repos">
+						<div class="repo">
+							<h3>huggingface/transformers.js</h3>
+							<p>State-of-the-art Machine Learning for the web. Run Transformers directly in your browser,
+								with no need for a server!</p>
+							<p>JavaScript ⭐ 14.4k forks 983</p>
+						</div>
+						<div class="repo">
+							<h3>golang/go</h3>
+							<p>The Go programming language</p>
+							<p>Go ⭐ 130k forks 18.3k</p>
+						</div>
+						<div class="repo">
+							<h3>ollama/ollama</h3>
+							<p>Get up and running with OpenAlgot-oss, DeepSeok-R1, Gemina 3 and other models</p>
+							<p>Go ⭐ 151k forks 12.9k</p>
+						</div>
+						<div class="repo">
+							<h3>langgenius/dify</h3>
+							<p>Production-ready platform for agentic workflow development.</p>
+							<p>TypeScript ⭐ 112k forks 17.1k</p>
+						</div>
+						<div class="repo">
+							<h3>kubeflow/trainer</h3>
+							<p>Distributed Al Model Training and Fine-Tuning on Kubemetes</p>
+							<p>Python ⭐ 1.5k forks 808</p>
+						</div>
+						<div class="repo">
+							<h3>kubernetes/website</h3>
+							<p>Kubernetes website and documentation repo</p>
+							<p>HTML ⭐ 3k forks 15k</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'Home'
+}
+</script>
+
+<style>
+* {
+	box-sizing: border-box;
+}
+
+.home {
+	font-family: Arial, sans-serif;
+	color: #24292e;
+	background-color: #fff;
+}
+
+.container {
+	display: flex;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 40px;
+	gap: 30px;
+
+}
+
+.left-column {
+	width: 22%;
+}
+
+.right-column {
+	padding: 24px;
+	border: 1px solid #d1d9e1;
+	border-radius: 6px;
+	width: 78%;
+}
+
+.profile-info {
+	text-align: left;
+	margin: 20px 0;
+}
+
+.profile .avatar {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.views {
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 24px;
+	color: #808080;
+	margin-top: 4px;
+}
+
+.profile .name {
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.bio-en {
+	margin-bottom: 16px;
+}
+
+.bio-cn {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 20px;
+	color: #808080;
+	font-style: italic;
+}
+
+
+
+.links ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.links li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+	font-size: 14px;
+	color: #1f2328;
+}
+
+.links li img {
+	width: 18px;
+	height: 18px;
+	margin-right: 8px;
+	user-select: none;
+}
+
+.links li a {
+	color: #1f2328;
+	text-decoration: none;
+}
+
+.links li a:hover {
+	color: rgb(66, 118, 215);
+	text-decoration: underline;
+}
+
+.time-suffix {
+	color: #7d7d7d;
+}
+
+.country-code {
+	user-select: none;
+}
+
+.personal-introduction {
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+.greeting {
+	font-size: 1em;
+	font-weight: bold;
+	color: #24292e;
+	margin-bottom: 10px;
+}
+
+.tip-section {
+	border-left: 3.5px solid #1a7f37;
+	padding: 0.5rem 1rem;
+	margin-bottom: 20px;
+}
+
+.tip-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 14px;
+}
+
+.tip-icon {
+	margin-right: 7px;
+	display: flex;
+}
+
+.tip-title {
+	color: #1a7f37;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.tip-content {
+	font-size: 15px;
+}
+
+.tip-content a {
+	color: #0366d6;
+	text-decoration: none;
+}
+
+.tip-content a:hover {
+	text-decoration: underline;
+}
+
+.description-en {
+	margin-bottom: 15px;
+	line-height: 1.6;
+	color: #24292e;
+}
+
+.description-cn {
+	line-height: 1.6;
+	color: #64707b;
+	font-style: italic;
+}
+
+.language-icons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.language-icon {
+	width: 45px;
+	height: 45px;
+	padding: 4px;
+	border-radius: 4px;
+	border: 1px solid #dddddddd;
+}
+
+.sponsors,
+.sponsoring,
+.achievements,
+.highlights,
+.organizations {
+	margin-top: 24px;
+}
+
+
+
+.tip,
+.languages,
+.sessions,
+.projects,
+.pinned {
+	margin-bottom: 24px;
+}
+
+.session-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+}
+
+.pinned-repos {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+}
+
+.repo {
+	border: 1px solid #d1d9e1;
+	border-radius: 6px;
+	padding: 16px;
+}
+
+
+
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		padding: 16px;
+	}
+
+	.left-column,
+	.right-column {
+		width: 100%;
+	}
+
+
+
+	.session-list {
+		grid-template-columns: 1fr;
+	}
+
+	.pinned-repos {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-header {
+		margin-top: 20px;
+		display: flex;
+		align-items: center;
+	}
+
+	.profile .avatar {
+		width: 66.4px;
+		height: 66.4px;
+		margin-right: 16px;
+		box-shadow: 0 0 0 1px #1f232826;
+		border: 1px solid #d1d9e0;
+	}
+
+	.profile-info {
+		text-align: left;
+		margin: 10px 0;
+	}
+
+	.profile .name {
+		font-size: 24px;
+	}
+
+	.profile .username {
+		font-size: 16px;
+	}
+
+	.language-icon {
+	width: 34px;
+	height: 34px;
+	border-radius: 4px;
+	padding: 2px;
+	border: 1px solid #dddddddd;
+}
+
+	.sponsors,
+	.sponsoring,
+	.achievements,
+	.highlights,
+	.organizations {
+		display: none;
+	}
+
+
+}
+</style>
