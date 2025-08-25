@@ -63,55 +63,32 @@
 					<h4>我使用的语言、框架和工具 Languages & Frameworks & Tools I use</h4>
 
 					<div class="language-icons">
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg"
-							class="language-icon" />
-						<img src="https://img.xz7.com/up/2020-7/2020728119283636.png" class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/neo4j/neo4j-original.svg"
-							class="language-icon" />
-						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-							class="language-icon" />
+						<img src="../assets/Home/skillsIcon/cplusplus-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/javascript-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/vuejs-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/python-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/java-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/spring-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/mysql-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/docker-plain.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/kotlin-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/tailwindcss-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/vitejs-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/anaconda-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/matlab-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/uniapp.png" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/neo4j-original.svg" class="language-icon" />
+						<img src="../assets/Home/skillsIcon/git-original.svg" class="language-icon" />
 					</div>
 
 				</div>
 				<div class="sessions">
-					<h4>个人项目经历</h4>
-					<p></p>
-					<div class="session-list">
-						<div class="session">
-							<p>2025.05.11 @ Hong Kong KubeCon</p>
-							<p>Links: Slides</p>
-						</div>
-						<div class="session">
-							<p>2025.05.10 @ Hangzhou Demo Day</p>
-							<p>Links: Slides</p>
-						</div>
-						<div class="session">
-							<p>2025.04.12 @ Shanghai 极速空间</p>
-							<p>Links: Slides</p>
+					<h4>项目经历和成果 Project Experience & Achievements</h4>
+					<div class="tip-section1">
+						<div class="tip-content">
+							<div class="description-cn">
+								Maybe there's something you're interested in, maybe.
+							</div>
 						</div>
 					</div>
 				</div>
@@ -160,296 +137,302 @@
 </template>
 
 <script>
-export default {
-	name: 'Home'
-}
+	export default {
+		name: 'Home'
+	}
 </script>
 
 <style>
-* {
-	box-sizing: border-box;
-}
+	* {
+		box-sizing: border-box;
+	}
 
-.home {
-	font-family: Arial, sans-serif;
-	color: #24292e;
-	background-color: #fff;
-}
+	.home {
+		font-family: Arial, sans-serif;
+		color: #24292e;
+		background-color: #fff;
+	}
 
-.container {
-	display: flex;
-	max-width: 1300px;
-	margin: 0 auto;
-	padding: 40px;
-	gap: 30px;
-
-}
-
-.left-column {
-	width: 22%;
-}
-
-.right-column {
-	padding: 24px;
-	border: 1px solid #d1d9e1;
-	border-radius: 6px;
-	width: 78%;
-}
-
-.profile-info {
-	text-align: left;
-	margin: 20px 0;
-}
-
-.profile .avatar {
-	width: 100%;
-	border-radius: 50%;
-}
-
-.views {
-	font-size: 18px;
-	font-weight: 300;
-	line-height: 24px;
-	color: #808080;
-	margin-top: 4px;
-}
-
-.profile .name {
-	font-size: 26px;
-	font-weight: 600;
-	line-height: 1.25;
-}
-
-.bio-en {
-	margin-bottom: 16px;
-}
-
-.bio-cn {
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 20px;
-	color: #808080;
-	font-style: italic;
-}
-
-
-
-.links ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.links li {
-	display: flex;
-	align-items: center;
-	margin-bottom: 12px;
-	font-size: 14px;
-	color: #1f2328;
-}
-
-.links li img {
-	width: 18px;
-	height: 18px;
-	margin-right: 8px;
-	user-select: none;
-}
-
-.links li a {
-	color: #1f2328;
-	text-decoration: none;
-}
-
-.links li a:hover {
-	color: rgb(66, 118, 215);
-	text-decoration: underline;
-}
-
-.time-suffix {
-	color: #7d7d7d;
-}
-
-.country-code {
-	user-select: none;
-}
-
-.personal-introduction {
-	font-size: 13px;
-	margin-bottom: 20px;
-}
-
-.greeting {
-	font-size: 1em;
-	font-weight: bold;
-	color: #24292e;
-	margin-bottom: 10px;
-}
-
-.tip-section {
-	border-left: 3.5px solid #1a7f37;
-	padding: 0.5rem 1rem;
-	margin-bottom: 20px;
-}
-
-.tip-header {
-	display: flex;
-	align-items: center;
-	margin-bottom: 14px;
-}
-
-.tip-icon {
-	margin-right: 7px;
-	display: flex;
-}
-
-.tip-title {
-	color: #1a7f37;
-	font-weight: 600;
-	line-height: 1;
-}
-
-.tip-content {
-	font-size: 15px;
-}
-
-.tip-content a {
-	color: #0366d6;
-	text-decoration: none;
-}
-
-.tip-content a:hover {
-	text-decoration: underline;
-}
-
-.description-en {
-	margin-bottom: 15px;
-	line-height: 1.6;
-	color: #24292e;
-}
-
-.description-cn {
-	line-height: 1.6;
-	color: #64707b;
-	font-style: italic;
-}
-
-.language-icons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	margin-top: 10px;
-}
-
-.language-icon {
-	width: 45px;
-	height: 45px;
-	padding: 4px;
-	border-radius: 4px;
-	border: 1px solid #dddddddd;
-}
-
-.sponsors,
-.sponsoring,
-.achievements,
-.highlights,
-.organizations {
-	margin-top: 24px;
-}
-
-
-
-.tip,
-.languages,
-.sessions,
-.projects,
-.pinned {
-	margin-bottom: 24px;
-}
-
-.session-list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
-}
-
-.pinned-repos {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 16px;
-}
-
-.repo {
-	border: 1px solid #d1d9e1;
-	border-radius: 6px;
-	padding: 16px;
-}
-
-
-
-@media (max-width: 768px) {
 	.container {
-		flex-direction: column;
-		padding: 16px;
-	}
-
-	.left-column,
-	.right-column {
-		width: 100%;
-	}
-
-
-
-	.session-list {
-		grid-template-columns: 1fr;
-	}
-
-	.pinned-repos {
-		grid-template-columns: 1fr;
-	}
-
-	.profile-header {
-		margin-top: 20px;
 		display: flex;
-		align-items: center;
+		max-width: 1300px;
+		margin: 0 auto;
+		padding: 40px;
+		gap: 30px;
+
 	}
 
-	.profile .avatar {
-		width: 66.4px;
-		height: 66.4px;
-		margin-right: 16px;
-		box-shadow: 0 0 0 1px #1f232826;
-		border: 1px solid #d1d9e0;
+	.left-column {
+		width: 22%;
+	}
+
+	.right-column {
+		padding: 24px;
+		border: 1px solid #d1d9e1;
+		border-radius: 6px;
+		width: 78%;
 	}
 
 	.profile-info {
 		text-align: left;
-		margin: 10px 0;
+		margin: 20px 0;
+	}
+
+	.profile .avatar {
+		width: 100%;
+		border-radius: 50%;
+	}
+
+	.views {
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 24px;
+		color: #808080;
+		margin-top: 4px;
 	}
 
 	.profile .name {
-		font-size: 24px;
+		font-size: 26px;
+		font-weight: 600;
+		line-height: 1.25;
 	}
 
-	.profile .username {
-		font-size: 16px;
+	.bio-en {
+		margin-bottom: 16px;
+	}
+
+	.bio-cn {
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 20px;
+		color: #808080;
+		font-style: italic;
+	}
+
+
+
+	.links ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.links li {
+		display: flex;
+		align-items: center;
+		margin-bottom: 12px;
+		font-size: 14px;
+		color: #1f2328;
+	}
+
+	.links li img {
+		width: 18px;
+		height: 18px;
+		margin-right: 8px;
+		user-select: none;
+	}
+
+	.links li a {
+		color: #1f2328;
+		text-decoration: none;
+	}
+
+	.links li a:hover {
+		color: rgb(66, 118, 215);
+		text-decoration: underline;
+	}
+
+	.time-suffix {
+		color: #7d7d7d;
+	}
+
+	.country-code {
+		user-select: none;
+	}
+
+	.personal-introduction {
+		font-size: 13px;
+		margin-bottom: 20px;
+	}
+
+	.greeting {
+		font-size: 1em;
+		font-weight: bold;
+		color: #24292e;
+		margin-bottom: 10px;
+	}
+
+	.tip-section {
+		border-left: 3.5px solid #1a7f37;
+		padding: 0.5rem 1rem;
+		margin-bottom: 20px;
+	}
+	
+	.tip-section1{
+		border-left: 3.5px solid #d6d6d6;
+		padding: 0rem 1rem;
+		margin-bottom: 20px;
+	}
+
+	.tip-header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 14px;
+	}
+
+	.tip-icon {
+		margin-right: 7px;
+		display: flex;
+	}
+
+	.tip-title {
+		color: #1a7f37;
+		font-weight: 600;
+		line-height: 1;
+	}
+
+	.tip-content {
+		font-size: 15px;
+	}
+
+	.tip-content a {
+		color: #0366d6;
+		text-decoration: none;
+	}
+
+	.tip-content a:hover {
+		text-decoration: underline;
+	}
+
+	.description-en {
+		margin-bottom: 15px;
+		line-height: 1.6;
+		color: #24292e;
+	}
+
+	.description-cn {
+		line-height: 1.6;
+		color: #64707b;
+		font-style: italic;
+	}
+
+	.language-icons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 10px;
 	}
 
 	.language-icon {
-	width: 34px;
-	height: 34px;
-	border-radius: 4px;
-	padding: 2px;
-	border: 1px solid #dddddddd;
-}
+		width: 45px;
+		height: 45px;
+		padding: 4px;
+		border-radius: 4px;
+		border: 1px solid #dddddddd;
+	}
 
 	.sponsors,
 	.sponsoring,
 	.achievements,
 	.highlights,
 	.organizations {
-		display: none;
+		margin-top: 24px;
 	}
 
 
-}
+
+	.tip,
+	.languages,
+	.sessions,
+	.projects,
+	.pinned {
+		margin-bottom: 24px;
+	}
+
+	.session-list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+
+	.pinned-repos {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.repo {
+		border: 1px solid #d1d9e1;
+		border-radius: 6px;
+		padding: 16px;
+	}
+
+
+
+	@media (max-width: 768px) {
+		.container {
+			flex-direction: column;
+			padding: 16px;
+		}
+
+		.left-column,
+		.right-column {
+			width: 100%;
+		}
+
+
+
+		.session-list {
+			grid-template-columns: 1fr;
+		}
+
+		.pinned-repos {
+			grid-template-columns: 1fr;
+		}
+
+		.profile-header {
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+		}
+
+		.profile .avatar {
+			width: 66.4px;
+			height: 66.4px;
+			margin-right: 16px;
+			box-shadow: 0 0 0 1px #1f232826;
+			border: 1px solid #d1d9e0;
+		}
+
+		.profile-info {
+			text-align: left;
+			margin: 10px 0;
+		}
+
+		.profile .name {
+			font-size: 24px;
+		}
+
+		.profile .username {
+			font-size: 16px;
+		}
+
+		.language-icon {
+			width: 34px;
+			height: 34px;
+			border-radius: 4px;
+			padding: 2px;
+			border: 1px solid #dddddddd;
+		}
+
+		.sponsors,
+		.sponsoring,
+		.achievements,
+		.highlights,
+		.organizations {
+			display: none;
+		}
+
+
+	}
 </style>
