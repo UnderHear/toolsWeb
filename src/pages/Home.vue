@@ -91,6 +91,56 @@
 							</div>
 						</div>
 					</div>
+					<div class="project-experience">
+						<div class="project-card">
+							<div class="project-header">
+								<h3>个人博客系统 Personal Blog System</h3>
+								<span class="project-date">2024.01 - 2024.03</span>
+							</div>
+							<div class="project-description">
+								<p>基于Vue.js和Node.js开发的全栈个人博客系统，支持文章发布、分类管理、评论系统等功能。</p>
+								<p>A full-stack personal blog system built with Vue.js and Node.js, featuring article publishing, category management, and comment system.</p>
+							</div>
+							<div class="project-tech">
+								<span class="tech-tag">Vue.js</span>
+								<span class="tech-tag">Node.js</span>
+								<span class="tech-tag">MongoDB</span>
+								<span class="tech-tag">Express</span>
+							</div>
+						</div>
+						<div class="project-card">
+							<div class="project-header">
+								<h3>智能任务管理系统 Smart Task Management</h3>
+								<span class="project-date">2023.09 - 2023.12</span>
+							</div>
+							<div class="project-description">
+								<p>集成AI助手的任务管理平台，支持智能任务分配、进度跟踪和团队协作功能。</p>
+								<p>AI-powered task management platform with intelligent task allocation, progress tracking, and team collaboration features.</p>
+							</div>
+							<div class="project-tech">
+								<span class="tech-tag">React</span>
+								<span class="tech-tag">Python</span>
+								<span class="tech-tag">FastAPI</span>
+								<span class="tech-tag">PostgreSQL</span>
+							</div>
+						</div>
+						<div class="project-card">
+							<div class="project-header">
+								<h3>数据可视化仪表板 Data Visualization Dashboard</h3>
+								<span class="project-date">2023.06 - 2023.08</span>
+							</div>
+							<div class="project-description">
+								<p>企业级数据可视化平台，提供实时数据监控、图表生成和报告导出功能。</p>
+								<p>Enterprise-level data visualization platform with real-time monitoring, chart generation, and report export capabilities.</p>
+							</div>
+							<div class="project-tech">
+								<span class="tech-tag">Angular</span>
+								<span class="tech-tag">D3.js</span>
+								<span class="tech-tag">Spring Boot</span>
+								<span class="tech-tag">MySQL</span>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="projects">
 					<h2>有趣的项目 Highlights</h2>
@@ -365,6 +415,77 @@
 		border: 1px solid #d1d9e1;
 		border-radius: 6px;
 		padding: 16px;
+	}
+
+	.project-experience {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.project-card {
+		border: 1px solid #d1d9e1;
+		border-radius: 6px;
+		padding: 20px;
+		background-color: #fff;
+		transition: box-shadow 0.2s ease;
+	}
+
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 12px;
+	}
+
+	.project-header h3 {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 600;
+		color: #0969da;
+		line-height: 1.25;
+	}
+
+	.project-date {
+		font-size: 12px;
+		color: #656d76;
+		background-color: #f6f8fa;
+		padding: 4px 8px;
+		border-radius: 12px;
+		font-weight: 500;
+	}
+
+	.project-description {
+		margin-bottom: 16px;
+	}
+
+	.project-description p {
+		margin: 0 0 8px 0;
+		font-size: 14px;
+		line-height: 1.5;
+		color: #656d76;
+	}
+
+	.project-description p:first-child {
+		color: #24292f;
+		font-weight: 500;
+	}
+
+	.project-tech {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.tech-tag {
+		background-color: #ddf4ff;
+		color: #0969da;
+		padding: 4px 8px;
+		border-radius: 12px;
+		font-size: 12px;
+		font-weight: 500;
+		border: 1px solid #54aeff66;
 	}
 
 
