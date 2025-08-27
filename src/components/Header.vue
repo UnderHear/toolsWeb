@@ -3,17 +3,15 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'MainHeader'
-}
+<script setup lang="ts">
+
 </script>
 
 <style scoped>
 .main-header {
   width: 100%;
   height: 100px;
-  background-color: #f8f9fa; /* Adding a background color to make it visible */
+  background-color: #f8f9fa;
   border-bottom: 1px solid #d0d0d0b1;
 }
 

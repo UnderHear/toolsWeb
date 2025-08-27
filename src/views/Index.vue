@@ -1,14 +1,16 @@
 <template>
-	<div class="home">
+	<div class="index">
 		<div class="container">
 			<div class="left-column">
 				<div class="profile">
 					<div class="profile-header">
-						<img src="../assets/Home/avatar.png" alt="Neko" class="avatar">
+						<img src="../assets/index/avatar.png" alt="Neko" class="avatar">
 						<div class="profile-info">
 							<div class="name">Zsir</div>
-							<div class="views"><img src="../assets/Home/views.png" alt="views"
-									style="width: 18px; height: 18px; margin-right: 4px; vertical-align: middle;">1
+							<div class="views">
+								<img src="../assets/index/views.png" alt="views"
+									style="width: 18px; height: 18px; margin-right: 4px; vertical-align: middle;">
+								<div>1</div>
 							</div>
 						</div>
 					</div>
@@ -17,20 +19,20 @@
 					<p class="bio-cn">对前沿、先进和热门的技术感兴趣并保持探索。</p>
 					<div class="links">
 						<ul>
-							<li><img src="../assets/Home/location.png" alt="location"><span>Hangzhou, China</span></li>
-							<li><img src="../assets/Home/time.png" alt="time"><span>17:30 <span class="time-suffix">-
+							<li><img src="../assets/index/location.png" alt="location"><span>Hangzhou, China</span></li>
+							<li><img src="../assets/index/time.png" alt="time"><span>17:30 <span class="time-suffix">-
 										same time</span></span></li>
-							<li><img src="../assets/Home/email.png" alt="email"><span><a
+							<li><img src="../assets/index/email.png" alt="email"><span><a
 										href="mailto:2533643340@qq.com">2533643340@qq.com</a></span></li>
-							<li><img src="../assets/Home/github.png" alt="github"><span><a
+							<li><img src="../assets/index/github.png" alt="github"><span><a
 										href="https://github.com/zhangchengwei5834"
 										target="_blank">@zhangchengwei5834</a></span></li>
-							<li><img src="../assets/Home/facebook.png" alt="facebook"><span><a
+							<li><img src="../assets/index/facebook.png" alt="facebook"><span><a
 										href="https://www.facebook.com/profile.php?id=100091494675623" target="_blank"
 										rel="noopener noreferrer">@张成炜</a></span></li>
-							<li><img src="../assets/Home/x.png" alt="x"><span><a href="https://x.com/zhangch94743257"
+							<li><img src="../assets/index/x.png" alt="x"><span><a href="https://x.com/zhangch94743257"
 										target="_blank" rel="noopener noreferrer">@zhangch94743257</a></span></li>
-							<li><img src="../assets/Home/phone.png" alt="phone"><span><a href="tel:+8619858170547"><span
+							<li><img src="../assets/index/phone.png" alt="phone"><span><a href="tel:+8619858170547"><span
 											class="country-code">+86 </span>19858170547</a></span></li>
 						</ul>
 					</div>
@@ -41,7 +43,7 @@
 				<div class="greeting">你好 Hello 🤗</div>
 				<div class="tip-section">
 					<div class="tip-header">
-						<span class="tip-icon"><img src="../assets/Home/idea.png" alt="idea"
+						<span class="tip-icon"><img src="../assets/index/idea.png" alt="idea"
 								style="width: 20px; height: 20px;"></span>
 						<span class="tip-title">Tip</span>
 					</div>
@@ -63,22 +65,22 @@
 					<h4>我使用的语言、框架和工具 Languages & Frameworks & Tools I use</h4>
 
 					<div class="language-icons">
-						<img src="../assets/Home/skillsIcon/cplusplus-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/javascript-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/vuejs-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/python-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/java-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/spring-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/mysql-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/docker-plain.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/kotlin-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/tailwindcss-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/vitejs-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/anaconda-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/matlab-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/uniapp.png" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/neo4j-original.svg" class="language-icon" />
-						<img src="../assets/Home/skillsIcon/git-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/cplusplus-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/javascript-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/vuejs-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/python-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/java-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/spring-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/mysql-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/docker-plain.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/kotlin-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/tailwindcss-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/vitejs-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/anaconda-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/matlab-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/uniapp.png" class="language-icon" />
+						<img src="../assets/index/skillsIcon/neo4j-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/git-original.svg" class="language-icon" />
 					</div>
 
 				</div>
@@ -188,7 +190,7 @@
 
 <script>
 	export default {
-		name: 'Home'
+		name: 'index'
 	}
 </script>
 
@@ -197,7 +199,7 @@
 		box-sizing: border-box;
 	}
 
-	.home {
+	.index {
 		font-family: Arial, sans-serif;
 		color: #24292e;
 		background-color: #fff;
@@ -239,6 +241,8 @@
 		line-height: 24px;
 		color: #808080;
 		margin-top: 4px;
+		display: flex;
+		align-items: center;
 	}
 
 	.profile .name {
@@ -257,6 +261,7 @@
 		line-height: 20px;
 		color: #808080;
 		font-style: italic;
+		margin-bottom: 16px;
 	}
 
 
@@ -321,7 +326,7 @@
 	.tip-section1{
 		border-left: 3.5px solid #d6d6d6;
 		padding: 0rem 1rem;
-		margin-bottom: 20px;
+		margin: 16px 0px;
 	}
 
 	.tip-header {

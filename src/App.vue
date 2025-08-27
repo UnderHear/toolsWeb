@@ -1,18 +1,12 @@
-<template>
-  <MainHeader />
-  <router-view />
-</template>
-
-<script>
-import MainHeader from './components/Header.vue';
-
-export default {
-  name: 'App',
-  components: {
-    MainHeader
-  }
-};
+<script setup lang="ts">
+import MainHeader from '@/components/Header.vue';
 </script>
 
-<style>
-</style>
+<template>
+  <div id="app">
+    <MainHeader />
+    <router-view />
+  </div>
+</template>
+
+<style scoped></style>
