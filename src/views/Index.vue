@@ -72,7 +72,6 @@
 						<img src="../assets/index/skillsIcon/java-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/spring-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/mysql-original.svg" class="language-icon" />
-						<img src="../assets/index/skillsIcon/docker-plain.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/kotlin-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/tailwindcss-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/vitejs-original.svg" class="language-icon" />
@@ -81,6 +80,7 @@
 						<img src="../assets/index/skillsIcon/uniapp.png" class="language-icon" />
 						<img src="../assets/index/skillsIcon/neo4j-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/git-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/docker-plain.svg" class="language-icon" />
 					</div>
 
 				</div>
@@ -96,91 +96,65 @@
 					<div class="project-experience">
 						<div class="project-card">
 							<div class="project-header">
-								<h3>个人博客系统 Personal Blog System</h3>
-								<span class="project-date">2024.01 - 2024.03</span>
+								<h3>浙江数字金融科技联合会官网 ZAFT</h3>
+								<span class="project-date">2025.7 - 2025.8</span>
 							</div>
 							<div class="project-description">
-								<p>基于Vue.js和Node.js开发的全栈个人博客系统，支持文章发布、分类管理、评论系统等功能。</p>
-								<p>A full-stack personal blog system built with Vue.js and Node.js, featuring article publishing, category management, and comment system.</p>
+								<p>基于Vue3+Vite开发，个人完成的定制化企业官网。通过Docker部署在阿里云ECS Ubuntu上。</p>
+								<p>ZAFT is a customized corporate website developed using Vue3. It features modern and responsive design, as well as a range of interactive elements to enhance the user experience. The website is built using Vue3, Vue Router, and Tailwind CSS, and deployed on Alibaba Cloud through Docker.</p>
 							</div>
 							<div class="project-tech">
-								<span class="tech-tag">Vue.js</span>
-								<span class="tech-tag">Node.js</span>
-								<span class="tech-tag">MongoDB</span>
-								<span class="tech-tag">Express</span>
+								<span class="tech-tag">Vue3</span>
+								<span class="tech-tag">Vite</span>
+								<span class="tech-tag">Vue Router</span>
+								<span class="tech-tag">JavaScript</span>
+								<span class="tech-tag">Ubuntu</span>
+								<span class="tech-tag">Nginx</span>
+								<span class="tech-tag">Docker</span>
 							</div>
 						</div>
 						<div class="project-card">
 							<div class="project-header">
-								<h3>智能任务管理系统 Smart Task Management</h3>
-								<span class="project-date">2023.09 - 2023.12</span>
+								<h3>ROS机器人全覆盖路径规划 ROS Robot Path Planning</h3>
+								<span class="project-date">2025.05 - 2025.8</span>
 							</div>
 							<div class="project-description">
-								<p>集成AI助手的任务管理平台，支持智能任务分配、进度跟踪和团队协作功能。</p>
-								<p>AI-powered task management platform with intelligent task allocation, progress tracking, and team collaboration features.</p>
+								<p>第八届中国高校智能机器人创意大赛主题三 竞技D，基于ROS预留的接口在动态地图中设计最优的全覆盖路径规划算法。</p>
+								<p>The 8th China University Intelligent Robot Creative Competition Theme 3 Competition D, designing optimal full-coverage path planning algorithms in dynamic maps based on ROS reserved interfaces.</p>
 							</div>
 							<div class="project-tech">
-								<span class="tech-tag">React</span>
+								<span class="tech-tag">ROS</span>
+								<span class="tech-tag">Rviz</span>
+								<span class="tech-tag">Gazebo</span>
 								<span class="tech-tag">Python</span>
-								<span class="tech-tag">FastAPI</span>
-								<span class="tech-tag">PostgreSQL</span>
+								<span class="tech-tag">Matlab</span>
+								<span class="tech-tag">Ubuntu</span>
+								<span class="tech-tag">Vmware</span>
 							</div>
 						</div>
 						<div class="project-card">
 							<div class="project-header">
-								<h3>数据可视化仪表板 Data Visualization Dashboard</h3>
-								<span class="project-date">2023.06 - 2023.08</span>
+								<h3>青乐网球微信小程序 Qingle Tennis WeChat Mini Program</h3>
+								<span class="project-date">2024.10 - 2025.3</span>
 							</div>
 							<div class="project-description">
-								<p>企业级数据可视化平台，提供实时数据监控、图表生成和报告导出功能。</p>
-								<p>Enterprise-level data visualization platform with real-time monitoring, chart generation, and report export capabilities.</p>
+								<p>使用Uniapp+Spring Boot+Mysql开发的商用青乐网球微信小程序，为青乐网球中心提供线上服务，包括但不限于场地预约，用户社区，在线商城，AI服务，教练绑定。</p>
+								<p>A commercial Qingle Tennis WeChat mini program developed using Uniapp+Spring Boot+MySQL, providing online services for Qingle Tennis Center, including but not limited to venue reservation, user community, online mall, AI services, and coach binding.</p>
 							</div>
 							<div class="project-tech">
-								<span class="tech-tag">Angular</span>
-								<span class="tech-tag">D3.js</span>
+								<span class="tech-tag">Uniapp</span>
+								<span class="tech-tag">Uni-ui</span>
+								<span class="tech-tag">Vue2</span>
+								<span class="tech-tag">mini-program</span>
+								<span class="tech-tag">JavaScript</span>
 								<span class="tech-tag">Spring Boot</span>
+								<span class="tech-tag">Java</span>
 								<span class="tech-tag">MySQL</span>
+								<span class="tech-tag">OpenAI</span>
+								<span class="tech-tag">RAG</span>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="projects">
-					<h2>有趣的项目 Highlights</h2>
-				</div>
-				<div class="pinned">
-					<h2>Pinned</h2>
-					<div class="pinned-repos">
-						<div class="repo">
-							<h3>huggingface/transformers.js</h3>
-							<p>State-of-the-art Machine Learning for the web. Run Transformers directly in your browser,
-								with no need for a server!</p>
-							<p>JavaScript ⭐ 14.4k forks 983</p>
-						</div>
-						<div class="repo">
-							<h3>golang/go</h3>
-							<p>The Go programming language</p>
-							<p>Go ⭐ 130k forks 18.3k</p>
-						</div>
-						<div class="repo">
-							<h3>ollama/ollama</h3>
-							<p>Get up and running with OpenAlgot-oss, DeepSeok-R1, Gemina 3 and other models</p>
-							<p>Go ⭐ 151k forks 12.9k</p>
-						</div>
-						<div class="repo">
-							<h3>langgenius/dify</h3>
-							<p>Production-ready platform for agentic workflow development.</p>
-							<p>TypeScript ⭐ 112k forks 17.1k</p>
-						</div>
-						<div class="repo">
-							<h3>kubeflow/trainer</h3>
-							<p>Distributed Al Model Training and Fine-Tuning on Kubemetes</p>
-							<p>Python ⭐ 1.5k forks 808</p>
-						</div>
-						<div class="repo">
-							<h3>kubernetes/website</h3>
-							<p>Kubernetes website and documentation repo</p>
-							<p>HTML ⭐ 3k forks 15k</p>
-						</div>
+					    <div class="view-more-simple">查看更多...</div>
 					</div>
 				</div>
 			</div>
@@ -374,13 +348,13 @@
 	.language-icons {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 10px;
+		gap: 8px;
 		margin-top: 10px;
 	}
 
 	.language-icon {
-		width: 45px;
-		height: 45px;
+		width: 46px;
+		height: 46px;
 		padding: 4px;
 		border-radius: 4px;
 		border: 1px solid #dddddddd;
@@ -426,12 +400,11 @@
 		margin-top: 20px;
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		border: 1px solid #d1d9e1;
 	}
 
 	.project-card {
-		border: 1px solid #d1d9e1;
-		border-radius: 6px;
+		border-bottom: 1px solid #d1d9e1;
 		padding: 20px;
 		background-color: #fff;
 		transition: box-shadow 0.2s ease;
@@ -446,16 +419,17 @@
 
 	.project-header h3 {
 		margin: 0;
-		font-size: 18px;
+		font-size: 16px;
 		font-weight: 600;
 		color: #0969da;
 		line-height: 1.25;
+		text-decoration: underline;
 	}
 
 	.project-date {
 		font-size: 12px;
 		color: #656d76;
-		background-color: #f6f8fa;
+		background-color: #f3f5f7;
 		padding: 4px 8px;
 		border-radius: 12px;
 		font-weight: 500;
@@ -486,11 +460,18 @@
 	.tech-tag {
 		background-color: #ddf4ff;
 		color: #0969da;
-		padding: 4px 8px;
-		border-radius: 12px;
+		padding: 0px 10px 0px 10px;
+		line-height: 22px;
+		border-radius: 100px;
 		font-size: 12px;
 		font-weight: 500;
-		border: 1px solid #54aeff66;
+	}
+
+	.view-more-simple {
+		text-align: center;
+		padding: 10px;
+		color: #0969da;
+		font-size: 14px;
 	}
 
 
@@ -559,6 +540,13 @@
 			display: none;
 		}
 
+		.project-header{
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+		}
 
 	}
+
+	
 </style>
