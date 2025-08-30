@@ -65,9 +65,10 @@
 					<h4>我使用的语言、框架和工具 Languages & Frameworks & Tools I use</h4>
 
 					<div class="language-icons">
-						<img src="../assets/index/skillsIcon/cplusplus-original.svg" class="language-icon" />
-						<img src="../assets/index/skillsIcon/javascript-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/typescript-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/uniapp.png" class="language-icon" />
 						<img src="../assets/index/skillsIcon/vuejs-original.svg" class="language-icon" />
+						<img src="../assets/index/skillsIcon/cplusplus-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/python-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/java-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/spring-original.svg" class="language-icon" />
@@ -77,7 +78,6 @@
 						<img src="../assets/index/skillsIcon/vitejs-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/anaconda-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/matlab-original.svg" class="language-icon" />
-						<img src="../assets/index/skillsIcon/uniapp.png" class="language-icon" />
 						<img src="../assets/index/skillsIcon/neo4j-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/git-original.svg" class="language-icon" />
 						<img src="../assets/index/skillsIcon/docker-plain.svg" class="language-icon" />
@@ -150,7 +150,8 @@
 								<span class="tech-tag">Spring Boot</span>
 								<span class="tech-tag">Java</span>
 								<span class="tech-tag">MySQL</span>
-								<span class="tech-tag">OpenAI</span>
+								<span class="tech-tag">AI</span>
+								<span class="tech-tag">DeepSeek</span>
 								<span class="tech-tag">RAG</span>
 							</div>
 						</div>
