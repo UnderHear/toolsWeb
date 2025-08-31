@@ -1,19 +1,18 @@
 <template>
-  <header class="sticky top-0 z-50 w-full bg-[#fefefe]/66 backdrop-blur-2xl shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+  <header
+    class="sticky top-0 z-50 w-full bg-[#F5F5F5]/66 backdrop-blur-2xl 
+    shadow-[0_1px_1px_rgba(220,220,220,1)] md:top-0 max-md:top-4 max-md:w-[calc(100%-32px)] 
+    max-md:mx-auto max-md:rounded-md max-md:shadow-none">
     <div class="container flex h-16 items-center justify-center px-4">
       <nav>
         <ul class="flex space-x-6">
           <li v-for="item in navigationItems" :key="item.name">
-            <a
-              :href="item.href"
-              :class="[
-                'px-4 py-2 rounded-md text-sm font-medium transition-colors',
-                item.active 
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'text-foreground hover:bg-accent hover:text-accent-foreground'
-              ]"
-              @click="navigateToPage(item)"
-            >
+            <a :href="item.href" :class="[
+              'px-2.5 py-2 rounded-md text-[16px] font-medium leading-none flex items-center',
+              item.active
+                ? 'bg-[#E6E6E6] text-[#000000]'
+                : 'text-[#727272] hover:bg-[#E6E6E6] hover:text-[#000000]'
+            ]" @click="navigateToPage(item)">
               {{ item.name }}
             </a>
           </li>
@@ -24,7 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 // Types
 interface NavigationItem {
@@ -33,39 +33,37 @@ interface NavigationItem {
   active: boolean
 }
 
+const router = useRouter()
+const route = useRoute()
+
 // Default navigation data
 const navigationItems = ref<NavigationItem[]>([
-  { name: '首页', href: '/', active: true },
-  { name: '关于', href: '/about', active: false },
-  { name: '项目', href: '/projects', active: false },
-  { name: '博客', href: '/blog', active: false },
+  { name: '首页', href: '/', active: false },
+  { name: '工具', href: '/tool', active: false },
+  { name: '名片', href: '/namecard', active: false },
 ])
+
+// Update active state based on current route
+const updateActiveState = () => {
+  navigationItems.value.forEach(navItem => {
+    navItem.active = navItem.href === route.path
+  })
+}
 
 // Methods
 const navigateToPage = (item: NavigationItem) => {
-  // Update active state
-  navigationItems.value.forEach(navItem => {
-    navItem.active = navItem.name === item.name
-  })
-  
-  // Navigate to the page
-  window.location.href = item.href
+  router.push(item.href)
 }
+
+// Initialize active state on mount
+onMounted(() => {
+  updateActiveState()
+})
+
+// Watch for route changes
+watch(() => route.path, () => {
+  updateActiveState()
+})
 </script>
 
-<style scoped>
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-</style>
+<style scoped></style>
