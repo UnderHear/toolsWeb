@@ -110,6 +110,9 @@
 								<span class="tech-tag">JavaScript</span>
 								<span class="tech-tag">Ubuntu</span>
 								<span class="tech-tag">Nginx</span>
+								<span class="tech-tag">Node</span>
+								<span class="tech-tag">Node.js</span>
+								<span class="tech-tag">PM2</span>
 								<span class="tech-tag">Docker</span>
 							</div>
 						</div>
