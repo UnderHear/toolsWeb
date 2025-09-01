@@ -1,14 +1,14 @@
 <template>
   <header
-    class="sticky top-0 z-50 w-full bg-[#F5F5F5]/66 backdrop-blur-2xl 
-    shadow-[0_1px_1px_rgba(220,220,220,1)] md:top-0 max-md:top-4 max-md:w-[calc(100%-32px)] 
-    max-md:mx-auto max-md:rounded-md max-md:shadow-none">
-    <div class="container flex h-16 items-center justify-center px-4">
+    class="sticky top-0 z-50 w-full bg-[#F5F5F5]/70 backdrop-blur-2xl 
+    shadow-[0_1px_1px_rgba(220,220,220,1)] md:top-0 max-md:top-4 max-md:w-[216px] 
+    max-md:mx-auto max-md:rounded-[24px] max-md:shadow-none">
+    <div class="flex h-20 items-center justify-center max-md:h-10">
       <nav>
         <ul class="flex space-x-6">
           <li v-for="item in navigationItems" :key="item.name">
             <a :href="item.href" :class="[
-              'px-2.5 py-2 rounded-md text-[16px] font-medium leading-none flex items-center',
+              'px-2.5 py-2 rounded-md text-[16px] font-medium leading-none flex items-center max-md:rounded-[16px]',
               item.active
                 ? 'bg-[#E6E6E6] text-[#000000]'
                 : 'text-[#727272] hover:bg-[#E6E6E6] hover:text-[#000000]'
