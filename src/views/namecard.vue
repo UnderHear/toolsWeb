@@ -168,7 +168,7 @@
                                 <span class="tech-tag">RAG</span>
                             </div>
                         </div>
-                        <div class="view-more-simple">查看更多...</div>
+                        <a href="/namecard/project" class="view-more-simple">查看更多...</a>
                     </div>
                 </div>
             </div>
