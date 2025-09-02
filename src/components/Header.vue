@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 // Types
@@ -38,7 +38,7 @@ const route = useRoute()
 
 // Default navigation data
 const navigationItems = ref<NavigationItem[]>([
-  { name: '首页', href: '/', active: false },
+  { name: '首页', href: '/', active: true },
   { name: '工具', href: '/tool', active: false },
   { name: '名片', href: '/namecard', active: false },
 ])
