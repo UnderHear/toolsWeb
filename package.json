@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@icon-park/vue-next": "^1.4.2",
     "@tailwindcss/vite": "^4.1.12",
     "@vueuse/core": "^13.8.0",
     "class-variance-authority": "^0.7.1",

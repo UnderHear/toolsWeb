@@ -95,80 +95,20 @@
                         </div>
                     </div>
                     <div class="project-experience">
-                        <div class="project-card">
+                        <div v-for="project in projects" :key="project.id" class="project-card">
                             <div class="project-header">
-                                <h3>浙江数字金融科技联合会官网 ZAFT</h3>
-                                <span class="project-date">2025.7 - 2025.8</span>
+                                <h3>{{ project.title }}</h3>
+                                <span class="project-date">{{ project.date }}</span>
                             </div>
                             <div class="project-description">
-                                <p>基于Vue3+Vite开发，个人完成的定制化企业官网。通过Docker部署在阿里云ECS Ubuntu上。</p>
-                                <p>ZAFT is a customized corporate website developed using Vue3. It features modern and
-                                    responsive design, as well as a range of interactive elements to enhance the user
-                                    experience. The website is built using Vue3, Vue Router, and Tailwind CSS, and
-                                    deployed on Alibaba Cloud through Docker.</p>
+                                <p>{{ project.description.zh }}</p>
+                                <p>{{ project.description.en }}</p>
                             </div>
                             <div class="project-tech">
-                                <span class="tech-tag">Vue3</span>
-                                <span class="tech-tag">Vite</span>
-                                <span class="tech-tag">Vue Router</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Ubuntu</span>
-                                <span class="tech-tag">Nginx</span>
-                                <span class="tech-tag">Node</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">PM2</span>
-                                <span class="tech-tag">Docker</span>
+                                <TechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</TechTag>
                             </div>
                         </div>
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h3>ROS机器人全覆盖路径规划 ROS Robot Path Planning</h3>
-                                <span class="project-date">2025.05 - 2025.8</span>
-                            </div>
-                            <div class="project-description">
-                                <p>第八届中国高校智能机器人创意大赛主题三 竞技D，基于ROS预留的接口在动态地图中设计最优的全覆盖路径规划算法。</p>
-                                <p>The 8th China University Intelligent Robot Creative Competition Theme 3 Competition
-                                    D, designing optimal full-coverage path planning algorithms in dynamic maps based on
-                                    ROS reserved interfaces.</p>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">ROS</span>
-                                <span class="tech-tag">Rviz</span>
-                                <span class="tech-tag">Gazebo</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Matlab</span>
-                                <span class="tech-tag">Ubuntu</span>
-                                <span class="tech-tag">Vmware</span>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h3>青乐网球微信小程序 Qingle Tennis WeChat Mini Program</h3>
-                                <span class="project-date">2024.10 - 2025.3</span>
-                            </div>
-                            <div class="project-description">
-                                <p>使用Uniapp+Spring
-                                    Boot+Mysql开发的商用青乐网球微信小程序，为青乐网球中心提供线上服务，包括但不限于场地预约，用户社区，在线商城，AI服务，教练绑定。</p>
-                                <p>A commercial Qingle Tennis WeChat mini program developed using Uniapp+Spring
-                                    Boot+MySQL, providing online services for Qingle Tennis Center, including but not
-                                    limited to venue reservation, user community, online mall, AI services, and coach
-                                    binding.</p>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">Uniapp</span>
-                                <span class="tech-tag">Uni-ui</span>
-                                <span class="tech-tag">Vue2</span>
-                                <span class="tech-tag">mini-program</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Spring Boot</span>
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">AI</span>
-                                <span class="tech-tag">DeepSeek</span>
-                                <span class="tech-tag">RAG</span>
-                            </div>
-                        </div>
-                        <a href="/namecard/project" class="view-more-simple">查看更多...</a>
+                        <a href="/namecard/project" class="view-more-simple">Read more...</a>
                     </div>
                 </div>
             </div>
@@ -176,10 +116,34 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'index'
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import TechTag from '@/components/ui-my/tag/TechTag.vue'
+import projectData from '@/data/json/Projectcard.json'
+
+//
+interface ProjectDescription {
+  zh: string
+  en: string
 }
+
+interface Project {
+  id: number
+  title: string
+  date: string
+  description: ProjectDescription
+  technologies: string[]
+  projectLink: string
+}
+
+const projects = ref<Project[]>([])
+
+onMounted(() => {
+  // 只获取前三条项目数据
+  projects.value = projectData.slice(0, 3)
+})
+
+//
 </script>
 
 <style>
@@ -471,15 +435,7 @@ export default {
     gap: 8px;
 }
 
-.tech-tag {
-    background-color: #ddf4ff;
-    color: #0969da;
-    padding: 0px 10px 0px 10px;
-    line-height: 22px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 500;
-}
+
 
 .view-more-simple {
     text-align: center;
