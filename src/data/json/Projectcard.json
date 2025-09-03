@@ -25,6 +25,18 @@
   },
   {
     "id": 3,
+    "title": "NFC手环导向网站 NFC Bracelet Website",
+    "date": "2025.05 - 2025.07",
+    "description": {
+      "zh": "使用定制的NFC手环贴近手机时将会跳转至该网站，页面拥有定制化音乐播放器，每次进入时随机获取文案和背景，服务北美中老年宗教人士。",
+      "en": "A customized NFC bracelet when approached by a phone will redirect to this website, featuring a customized music player with random content and backgrounds, serving North American middle-aged and elderly religious users."
+    },
+    "technologies": ["Uniapp", "SpringBoot", "PostgreSQL", "AWS", "分布式","负载均衡", "Ubuntu", "Nginx","AWS ALB"],
+    "projectLink": "#",
+    "weblink": "https://daily-mindfulness.com"
+  },
+  {
+    "id": 4,
     "title": "青乐网球微信小程序 Qingle Tennis WeChat Mini Program",
     "date": "2024.10 - 2025.03",
     "description": {
@@ -36,7 +48,7 @@
     "weblink": ""
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "个人博客网站 Personal Blog",
     "date": "2025.08 - Present",
     "description": {
@@ -48,26 +60,14 @@
     "weblink": "https://www.zhangchengwei.cn"
   },
   {
-    "id": 5,
-    "title": "智能家居控制系统 Smart Home Control",
-    "date": "2024.06 - 2024.09",
-    "description": {
-      "zh": "基于物联网技术的智能家居控制系统，支持远程控制家电设备、环境监测和自动化场景设置。",
-      "en": "An IoT-based smart home control system supporting remote appliance control, environmental monitoring, and automated scene settings."
-    },
-    "technologies": ["IoT", "Arduino", "ESP32", "MQTT", "React", "Node.js", "MongoDB"],
-    "projectLink": "#",
-    "weblink": ""
-  },
-  {
     "id": 6,
-    "title": "在线学习平台 Online Learning Platform",
-    "date": "2024.03 - 2024.05",
+    "title": "基于知识图谱和大模型的智能问答系统 Knowledge Graph AI Q&A System",
+    "date": "2024.03 - 2024.06",
     "description": {
-      "zh": "面向学生和教师的在线学习平台，提供课程管理、作业提交、在线考试和学习进度跟踪等功能。",
-      "en": "An online learning platform for students and teachers, providing course management, assignment submission, online testing, and learning progress tracking."
+      "zh": "基于Neo4j图数据库构建农业领域知识图谱。采用Spring AI框架集成OpenAI大模型，通过自然语言处理技术实现智能检索和问答。",
+      "en": "A knowledge graph AI Q&A system built with Neo4j graph database, integrating OpenAI large models through Spring AI framework, and implementing intelligent retrieval and Q&A through natural language processing."
     },
-    "technologies": ["React", "Redux", "Express.js", "PostgreSQL", "Socket.io", "JWT", "AWS"],
+    "technologies": ["Vue3", "Vite", "Spring Boot", "Spring AI", "OpenAI", "Python", "Knowledge Graph", "Neo4j", "NLP"],
     "projectLink": "#",
     "weblink": ""
   }

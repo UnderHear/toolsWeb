@@ -2,13 +2,13 @@
 	<div class="project-container">
 		<div class="project-header">
 			<h1 class="project-title">我的项目</h1>
-			<p class="project-subtitle">以下是我参与开发的一些项目，涵盖了全栈开发、机器人技术、小程序开发、AI等多个领域</p>
+			<p class="project-subtitle">以下是我独立开发的一些项目，涵盖了全栈开发、机器人技术、小程序开发、AI等多个领域。其中一些还在持续维护。</p>
 		</div>
 
 		<div class="project-grid">
 			<div v-for="project in projects" :key="project.id" class="project-card">
 				<div class="card-header">
-					<h3>{{ project.title }}</h3>
+					<a :href="project.projectLink">{{ project.title }}</a>
 					<span class="project-date">{{ project.date }}</span>
 				</div>
 				<a :href="project.weblink" v-if="project.weblink" class="project-link">{{ project.weblink }}</a>
@@ -110,7 +110,7 @@ onMounted(() => {
 	gap: 1rem;
 }
 
-.card-header h3 {
+.card-header a {
 	margin: 0;
 	font-size: 1.25rem;
 	font-weight: 600;
