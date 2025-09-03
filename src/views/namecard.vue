@@ -43,8 +43,7 @@
                 <div class="greeting">你好 Hello 🤗</div>
                 <div class="tip-section">
                     <div class="tip-header">
-                        <span class="tip-icon"><img src="../assets/index/idea.png" alt="idea"
-                                style="width: 20px; height: 20px;"></span>
+                        <span class="tip-icon"><icon-park type="tips" theme="filled" size="22" fill="#1a7f37"/></span>
                         <span class="tip-title">Tip</span>
                     </div>
                     <div class="tip-content">
