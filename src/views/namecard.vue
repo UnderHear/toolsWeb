@@ -416,6 +416,7 @@ onMounted(() => {
     padding: 4px 8px;
     border-radius: 12px;
     font-weight: 500;
+    min-width: 115px;
 }
 
 .project-description {

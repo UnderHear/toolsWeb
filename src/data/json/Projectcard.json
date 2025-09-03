@@ -2,19 +2,19 @@
   {
     "id": 1,
     "title": "浙江数字金融科技联合会官网 ZAFT",
-    "date": "2025.7 - 2025.8",
+    "date": "2025.07 - 2025.08",
     "description": {
       "zh": "基于Vue3+Vite开发，个人完成的定制化企业官网。通过Docker部署在阿里云ECS Ubuntu上。",
       "en": "ZAFT is a customized corporate website developed using Vue3. It features modern and responsive design, as well as a range of interactive elements to enhance the user experience. The website is built using Vue3, Vue Router, and Tailwind CSS, and deployed on Alibaba Cloud through Docker."
     },
     "technologies": ["Vue3", "Vite", "Vue Router", "JavaScript", "Ubuntu", "Nginx", "Node.js", "PM2", "Docker"],
     "projectLink": "#",
-    "weblink": ""
+    "weblink": "https://www.z-aft.com"
   },
   {
     "id": 2,
     "title": "ROS机器人全覆盖路径规划 ROS Robot Path Planning",
-    "date": "2025.05 - 2025.8",
+    "date": "2025.05 - 2025.08",
     "description": {
       "zh": "第八届中国高校智能机器人创意大赛主题三 竞技D，基于ROS预留的接口在动态地图中设计最优的全覆盖路径规划算法。",
       "en": "The 8th China University Intelligent Robot Creative Competition Theme 3 Competition D, designing optimal full-coverage path planning algorithms in dynamic maps based on ROS reserved interfaces."
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "title": "青乐网球微信小程序 Qingle Tennis WeChat Mini Program",
-    "date": "2024.10 - 2025.3",
+    "date": "2024.10 - 2025.03",
     "description": {
       "zh": "使用Uniapp+Spring Boot+Mysql开发的商用青乐网球微信小程序，为青乐网球中心提供线上服务，包括但不限于场地预约，用户社区，在线商城，AI服务，教练绑定。",
       "en": "A commercial Qingle Tennis WeChat mini program developed using Uniapp+Spring Boot+MySQL, providing online services for Qingle Tennis Center, including but not limited to venue reservation, user community, online mall, AI services, and coach binding."
@@ -38,19 +38,19 @@
   {
     "id": 4,
     "title": "个人博客网站 Personal Blog",
-    "date": "2025.8 - Present",
+    "date": "2025.08 - Present",
     "description": {
       "zh": "基于Vue3+TypeScript开发的个人博客网站，展示个人作品、技术文章和项目经验。采用我最高的代码设计能力和审美。",
       "en": "A personal blog website developed with Vue3+TypeScript, showcasing personal works, technical articles, and project experiences. Features modern design and responsive layout."
     },
     "technologies": ["Vue3", "TypeScript", "Vite", "Vue Router", "CSS3", "Responsive Design"],
     "projectLink": "#",
-    "weblink": ""
+    "weblink": "https://www.zhangchengwei.cn"
   },
   {
     "id": 5,
     "title": "智能家居控制系统 Smart Home Control",
-    "date": "2024.6 - 2024.9",
+    "date": "2024.06 - 2024.09",
     "description": {
       "zh": "基于物联网技术的智能家居控制系统，支持远程控制家电设备、环境监测和自动化场景设置。",
       "en": "An IoT-based smart home control system supporting remote appliance control, environmental monitoring, and automated scene settings."
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "title": "在线学习平台 Online Learning Platform",
-    "date": "2024.3 - 2024.5",
+    "date": "2024.03 - 2024.05",
     "description": {
       "zh": "面向学生和教师的在线学习平台，提供课程管理、作业提交、在线考试和学习进度跟踪等功能。",
       "en": "An online learning platform for students and teachers, providing course management, assignment submission, online testing, and learning progress tracking."

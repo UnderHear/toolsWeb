@@ -4,13 +4,14 @@
 			<h1 class="project-title">我的项目</h1>
 			<p class="project-subtitle">以下是我参与开发的一些项目，涵盖了全栈开发、机器人技术、小程序开发、AI等多个领域</p>
 		</div>
-		
+
 		<div class="project-grid">
 			<div v-for="project in projects" :key="project.id" class="project-card">
 				<div class="card-header">
 					<h3>{{ project.title }}</h3>
 					<span class="project-date">{{ project.date }}</span>
 				</div>
+				<a :href="project.weblink" v-if="project.weblink" class="project-link">{{ project.weblink }}</a>
 				<div class="project-description">
 					<p>{{ project.description.zh }}</p>
 					<p>{{ project.description.en }}</p>
@@ -18,9 +19,8 @@
 				<div class="project-tech">
 					<TechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</TechTag>
 				</div>
-				<div class="project-links">
-					<a :href="project.weblink" class="project-link">WEB</a>
-					<a :href="project.projectLink" class="project-link">MORE</a>
+				<div class="project-items">
+					<a :href="project.projectLink" class="project-detail">MORE</a>
 				</div>
 			</div>
 		</div>
@@ -29,29 +29,33 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+
+// 引入图标
 import TechTag from '@/components/ui-my/tag/TechTag.vue'
+
+// 引入数据
 import projectData from '@/data/json/Projectcard.json'
 
 //
 interface ProjectDescription {
-  zh: string
-  en: string
+	zh: string
+	en: string
 }
 
 interface Project {
-  id: number
-  title: string
-  date: string
-  description: ProjectDescription
-  technologies: string[]
-  projectLink: string
-  weblink: string
+	id: number
+	title: string
+	date: string
+	description: ProjectDescription
+	technologies: string[]
+	projectLink: string
+	weblink: string
 }
 
 const projects = ref<Project[]>([])
 
 onMounted(() => {
-  projects.value = projectData
+	projects.value = projectData
 })
 //
 </script>
@@ -102,7 +106,6 @@ onMounted(() => {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin-bottom: 1.5rem;
 	flex-wrap: wrap;
 	gap: 1rem;
 }
@@ -114,7 +117,6 @@ onMounted(() => {
 	color: #0969da;
 	line-height: 1.3;
 	flex: 1;
-	min-width: 250px;
 }
 
 .project-date {
@@ -152,14 +154,14 @@ onMounted(() => {
 
 
 
-.project-links {
+.project-items {
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
 	justify-content: right;
 }
 
-.project-link {
+.project-link,.project-detail {
 	display: inline-flex;
 	align-items: center;
 	color: #0969da;
@@ -169,7 +171,12 @@ onMounted(() => {
 	cursor: pointer;
 }
 
-.project-link:hover {
+.project-link{
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.project-link:hover,.project-detail:hover {
 	text-decoration: underline;
 }
 
@@ -200,23 +207,19 @@ onMounted(() => {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 0.5rem;
+		margin-bottom: 0.5rem;
 	}
 
-	.card-header h3 {
-		font-size: 1.1rem;
-		min-width: auto;
-	}
-
-	.project-links {
+	.project-items {
 		margin-top: 1rem;
 	}
 
-	.project-link {
+	.project-detail {
 		color: #3082e0;
 		justify-content: center;
 		text-align: center;
 		background-color: #f3f3f3;
-		padding:0.2rem 0.5rem;
+		padding: 0.2rem 0.5rem;
 		border-radius: 0.2rem;
 	}
 }
