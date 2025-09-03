@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "代码格式化工具",
+    "description": {
+      "zh": "在线代码格式化工具，支持多种编程语言的代码美化和格式化，让你的代码更加整洁易读。",
+      "en": "Online code formatting tool that supports code beautification and formatting for multiple programming languages, making your code cleaner and more readable."
+    },
+    "icon": "code",
+    "category": "开发工具",
+    "link": "#",
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "title": "二维码生成器",
+    "description": {
+      "zh": "快速生成各种类型的二维码，支持文本、链接、WiFi等多种内容格式。",
+      "en": "Quickly generate various types of QR codes with support for text, links, WiFi and other content formats."
+    },
+    "icon": "qrcode",
+    "category": "实用工具",
+    "link": "#",
+    "status": "coming-soon"
+  }
+]
