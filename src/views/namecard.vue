@@ -455,6 +455,7 @@ onMounted(() => {
     .container {
         flex-direction: column;
         padding: 16px;
+        gap: 10px;
     }
 
     .left-column,
