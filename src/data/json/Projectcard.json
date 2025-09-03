@@ -8,7 +8,8 @@
       "en": "ZAFT is a customized corporate website developed using Vue3. It features modern and responsive design, as well as a range of interactive elements to enhance the user experience. The website is built using Vue3, Vue Router, and Tailwind CSS, and deployed on Alibaba Cloud through Docker."
     },
     "technologies": ["Vue3", "Vite", "Vue Router", "JavaScript", "Ubuntu", "Nginx", "Node.js", "PM2", "Docker"],
-    "projectLink": "#"
+    "projectLink": "#",
+    "weblink": ""
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
       "en": "The 8th China University Intelligent Robot Creative Competition Theme 3 Competition D, designing optimal full-coverage path planning algorithms in dynamic maps based on ROS reserved interfaces."
     },
     "technologies": ["ROS", "Rviz", "Gazebo", "Python", "Matlab", "Ubuntu", "Vmware"],
-    "projectLink": "#"
+    "projectLink": "#",
+    "weblink": ""
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
       "en": "A commercial Qingle Tennis WeChat mini program developed using Uniapp+Spring Boot+MySQL, providing online services for Qingle Tennis Center, including but not limited to venue reservation, user community, online mall, AI services, and coach binding."
     },
     "technologies": ["Uniapp", "Uni-ui", "Vue2", "mini-program", "JavaScript", "Spring Boot", "Java", "MySQL", "AI", "DeepSeek", "RAG"],
-    "projectLink": "#"
+    "projectLink": "#",
+    "weblink": ""
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
       "en": "A personal blog website developed with Vue3+TypeScript, showcasing personal works, technical articles, and project experiences. Features modern design and responsive layout."
     },
     "technologies": ["Vue3", "TypeScript", "Vite", "Vue Router", "CSS3", "Responsive Design"],
-    "projectLink": "#"
+    "projectLink": "#",
+    "weblink": ""
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
       "en": "An IoT-based smart home control system supporting remote appliance control, environmental monitoring, and automated scene settings."
     },
     "technologies": ["IoT", "Arduino", "ESP32", "MQTT", "React", "Node.js", "MongoDB"],
-    "projectLink": "#"
+    "projectLink": "#",
+    "weblink": ""
   },
   {
     "id": 6,
@@ -63,6 +68,7 @@
       "en": "An online learning platform for students and teachers, providing course management, assignment submission, online testing, and learning progress tracking."
     },
     "technologies": ["React", "Redux", "Express.js", "PostgreSQL", "Socket.io", "JWT", "AWS"],
-    "projectLink": "#"
+    "projectLink": "#",
+    "weblink": ""
   }
 ]

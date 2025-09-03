@@ -19,6 +19,7 @@
 					<TechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</TechTag>
 				</div>
 				<div class="project-links">
+					<a :href="project.weblink" class="project-link">WEB</a>
 					<a :href="project.projectLink" class="project-link">MORE</a>
 				</div>
 			</div>
@@ -44,6 +45,7 @@ interface Project {
   description: ProjectDescription
   technologies: string[]
   projectLink: string
+  weblink: string
 }
 
 const projects = ref<Project[]>([])
