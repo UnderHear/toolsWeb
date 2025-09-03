@@ -19,20 +19,20 @@
                     <p class="bio-cn">对前沿、先进和热门的技术感兴趣并保持探索。</p>
                     <div class="links">
                         <ul>
-                            <li><icon-park type="local" theme="outline" size="18" fill="#333"/><span>Hangzhou, China</span></li>
-                            <li><icon-park type="time" theme="outline" size="18" fill="#333"/><span>17:30 <span class="time-suffix">-
+                            <li><icon-park type="local" theme="outline" size="20" fill="#5a5a5a"/><span>Hangzhou, China</span></li>
+                            <li><icon-park type="time" theme="outline" size="20" fill="#5a5a5a"/><span>17:30 <span class="time-suffix">-
                                         same time</span></span></li>
-                            <li><icon-park type="mail" theme="outline" size="18" fill="#333"/><span><a
+                            <li><icon-park type="mail" theme="outline" size="20" fill="#5a5a5a"/><span><a
                                         href="mailto:2533643340@qq.com">2533643340@qq.com</a></span></li>
-                            <li><icon-park type="github" theme="outline" size="18" fill="#333"/><span><a
+                            <li><icon-park type="github" theme="filled" size="20" fill="#5a5a5a"/><span><a
                                         href="https://github.com/zhangchengwei5834"
                                         target="_blank">@zhangchengwei5834</a></span></li>
-                            <li><icon-park type="facebook" theme="outline" size="18" fill="#333"/><span><a
+                            <li><icon-park type="facebook-one" theme="outline" size="20" fill="#5a5a5a"/><span><a
                                         href="https://www.facebook.com/profile.php?id=100091494675623" target="_blank"
                                         rel="noopener noreferrer">@张成炜</a></span></li>
-                            <li><icon-park type="twitter" theme="outline" size="18" fill="#333"/><span><a href="https://x.com/zhangch94743257"
+                            <li><icon-park type="twitter" theme="outline" size="20" fill="#5a5a5a"/><span><a href="https://x.com/zhangch94743257"
                                         target="_blank" rel="noopener noreferrer">@zhangch94743257</a></span></li>
-                            <li><icon-park type="phone" theme="outline" size="18" fill="#333"/><span><a
+                            <li><icon-park type="phone-telephone" theme="outline" size="20" fill="#5a5a5a"/><span><a
                                         href="tel:+8619858170547"><span class="country-code">+86
                                         </span>19858170547</a></span></li>
                         </ul>
@@ -233,13 +233,16 @@ onMounted(() => {
 
 .links li {
     display: flex;
-    align-items: end;
+    align-items: center;
     margin-bottom: 12px;
-    font-size: 14px;
     color: #1f2328;
     gap: 10px;
+    font-size: 14px;
 }
 
+.links li svg{
+    margin-top: 2px;
+}
 
 .links li a {
     color: #1f2328;
