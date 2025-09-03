@@ -20,6 +20,10 @@
 					<TechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</TechTag>
 				</div>
 				<div class="project-items">
+					<div class="project-badges">
+						<span class="project-type-badge">{{ project.projectType }}</span>
+						<span class="project-status-badge" :class="getStatusClass(project.status)">◉ {{ project.status }}</span>
+					</div>
 					<a :href="project.projectLink" class="project-detail">MORE</a>
 				</div>
 			</div>
@@ -50,6 +54,8 @@ interface Project {
 	technologies: string[]
 	projectLink: string
 	weblink: string
+	projectType: string
+	status: string
 }
 
 const projects = ref<Project[]>([])
@@ -57,6 +63,20 @@ const projects = ref<Project[]>([])
 onMounted(() => {
 	projects.value = projectData
 })
+
+// 根据状态返回对应的CSS类
+const getStatusClass = (status: string) => {
+	switch (status) {
+		case '维护中':
+			return 'status-active'
+		case '更新中':
+			return 'status-updating'
+		case '已停止':
+			return 'status-stopped'
+		default:
+			return ''
+	}
+}
 //
 </script>
 
@@ -150,6 +170,7 @@ onMounted(() => {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
+	margin-bottom: 0.4rem;
 }
 
 
@@ -158,7 +179,39 @@ onMounted(() => {
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
-	justify-content: right;
+	justify-content: space-between;
+	align-items: end;
+}
+
+.project-badges {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.project-type-badge {
+	font-size: 0.75rem;
+	color: #7c7c7c;
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.project-status-badge {
+	font-size: 0.75rem;
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.status-active {
+	color: #0969da;
+}
+
+.status-updating {
+	color: #3bc24f;
+}
+
+.status-stopped {
+	color: #e63838;
 }
 
 .project-link,.project-detail {
@@ -212,6 +265,12 @@ onMounted(() => {
 
 	.project-items {
 		margin-top: 1rem;
+		gap: 0.75rem;
+		align-items: end;
+	}
+
+	.project-badges {
+		order: 1;
 	}
 
 	.project-detail {
@@ -221,6 +280,8 @@ onMounted(() => {
 		background-color: #f3f3f3;
 		padding: 0.2rem 0.5rem;
 		border-radius: 0.2rem;
+		order: 2;
+		align-self: flex-end;
 	}
 }
 </style>

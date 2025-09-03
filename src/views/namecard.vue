@@ -8,8 +8,7 @@
                         <div class="profile-info">
                             <div class="name">Zsir</div>
                             <div class="views">
-                                <img src="../assets/index/views.png" alt="views"
-                                    style="width: 18px; height: 18px; margin-right: 4px; vertical-align: middle;">
+                                <IconPark type="preview-open" theme="outline" size="20" fill="#808080"/>
                                 <div>1</div>
                             </div>
                         </div>
@@ -202,6 +201,7 @@ onMounted(() => {
     margin-top: 4px;
     display: flex;
     align-items: center;
+    gap: 4px;
 }
 
 .profile .name {

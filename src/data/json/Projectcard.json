@@ -9,7 +9,9 @@
     },
     "technologies": ["Vue3", "Vite", "Vue Router", "JavaScript", "Ubuntu", "Nginx", "Node.js", "PM2", "Docker"],
     "projectLink": "#",
-    "weblink": "https://www.z-aft.com"
+    "weblink": "https://www.z-aft.com",
+    "projectType": "个人项目",
+    "status": "维护中"
   },
   {
     "id": 2,
@@ -21,7 +23,9 @@
     },
     "technologies": ["ROS", "Rviz", "Gazebo", "Python", "Matlab", "Ubuntu", "Vmware"],
     "projectLink": "#",
-    "weblink": ""
+    "weblink": "",
+    "projectType": "个人项目",
+    "status": "已停止"
   },
   {
     "id": 3,
@@ -33,7 +37,9 @@
     },
     "technologies": ["Uniapp", "SpringBoot", "PostgreSQL", "AWS", "分布式","负载均衡", "Ubuntu", "Nginx","AWS ALB"],
     "projectLink": "#",
-    "weblink": "https://daily-mindfulness.com"
+    "weblink": "https://daily-mindfulness.com",
+    "projectType": "个人项目",
+    "status": "维护中"
   },
   {
     "id": 4,
@@ -45,7 +51,9 @@
     },
     "technologies": ["Uniapp", "Uni-ui", "Vue2", "mini-program", "JavaScript", "Spring Boot", "Java", "MySQL", "AI", "DeepSeek", "RAG"],
     "projectLink": "#",
-    "weblink": ""
+    "weblink": "",
+    "projectType": "个人项目",
+    "status": "已停止"
   },
   {
     "id": 5,
@@ -57,7 +65,9 @@
     },
     "technologies": ["Vue3", "TypeScript", "Vite", "Vue Router", "CSS3", "Responsive Design"],
     "projectLink": "#",
-    "weblink": "https://www.zhangchengwei.cn"
+    "weblink": "https://www.zhangchengwei.cn",
+    "projectType": "个人项目",
+    "status": "更新中"
   },
   {
     "id": 6,
@@ -69,6 +79,22 @@
     },
     "technologies": ["Vue3", "Vite", "Spring Boot", "Spring AI", "OpenAI", "Python", "Knowledge Graph", "Neo4j", "NLP"],
     "projectLink": "#",
-    "weblink": ""
+    "weblink": "",
+    "projectType": "个人项目",
+    "status": "已停止"
+  },
+  {
+    "id": 7,
+    "title": "NFC手环导向网站 NFC Bracelet Navigation Website",
+    "date": "2024.12 - Present",
+    "description": {
+      "zh": "基于Vue3开发的NFC手环导向网站，通过NFC技术实现快速导航和信息展示。",
+      "en": "An NFC bracelet navigation website developed with Vue3, enabling quick navigation and information display through NFC technology."
+    },
+    "technologies": ["Vue3", "NFC", "JavaScript", "CSS3"],
+    "projectLink": "#",
+    "weblink": "https://nfc.zhangchengwei.cn",
+    "projectType": "个人项目",
+    "status": "已停止"
   }
 ]
