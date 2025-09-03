@@ -19,20 +19,20 @@
                     <p class="bio-cn">对前沿、先进和热门的技术感兴趣并保持探索。</p>
                     <div class="links">
                         <ul>
-                            <li><img src="../assets/index/location.png" alt="location"><span>Hangzhou, China</span></li>
-                            <li><img src="../assets/index/time.png" alt="time"><span>17:30 <span class="time-suffix">-
+                            <li><icon-park type="local" theme="outline" size="18" fill="#333"/><span>Hangzhou, China</span></li>
+                            <li><icon-park type="time" theme="outline" size="18" fill="#333"/><span>17:30 <span class="time-suffix">-
                                         same time</span></span></li>
-                            <li><img src="../assets/index/email.png" alt="email"><span><a
+                            <li><icon-park type="mail" theme="outline" size="18" fill="#333"/><span><a
                                         href="mailto:2533643340@qq.com">2533643340@qq.com</a></span></li>
-                            <li><img src="../assets/index/github.png" alt="github"><span><a
+                            <li><icon-park type="github" theme="outline" size="18" fill="#333"/><span><a
                                         href="https://github.com/zhangchengwei5834"
                                         target="_blank">@zhangchengwei5834</a></span></li>
-                            <li><img src="../assets/index/facebook.png" alt="facebook"><span><a
+                            <li><icon-park type="facebook" theme="outline" size="18" fill="#333"/><span><a
                                         href="https://www.facebook.com/profile.php?id=100091494675623" target="_blank"
                                         rel="noopener noreferrer">@张成炜</a></span></li>
-                            <li><img src="../assets/index/x.png" alt="x"><span><a href="https://x.com/zhangch94743257"
+                            <li><icon-park type="twitter" theme="outline" size="18" fill="#333"/><span><a href="https://x.com/zhangch94743257"
                                         target="_blank" rel="noopener noreferrer">@zhangch94743257</a></span></li>
-                            <li><img src="../assets/index/phone.png" alt="phone"><span><a
+                            <li><icon-park type="phone" theme="outline" size="18" fill="#333"/><span><a
                                         href="tel:+8619858170547"><span class="country-code">+86
                                         </span>19858170547</a></span></li>
                         </ul>
@@ -118,8 +118,15 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+
+// 引入图标
 import TechTag from '@/components/ui-my/tag/TechTag.vue'
+import {IconPark} from '@icon-park/vue-next/es/all';
+
+
+// 引入数据
 import projectData from '@/data/json/Projectcard.json'
+
 
 //
 interface ProjectDescription {
@@ -226,18 +233,13 @@ onMounted(() => {
 
 .links li {
     display: flex;
-    align-items: center;
+    align-items: end;
     margin-bottom: 12px;
     font-size: 14px;
     color: #1f2328;
+    gap: 10px;
 }
 
-.links li img {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-    user-select: none;
-}
 
 .links li a {
     color: #1f2328;
