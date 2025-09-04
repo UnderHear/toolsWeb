@@ -20,6 +20,11 @@ const routes = [
     path: '/namecard/project',
     name: 'Project',
     component: () => import('@/views/namecard/project.vue')
+  },
+  {
+    path: '/tool/pathplanner',
+    name: 'PathPlanner',
+    component: () => import('@/views/tool/pathplanner/pathplanner.vue')
   }
 ]
 

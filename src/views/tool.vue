@@ -18,7 +18,7 @@
           </div>
           <div class="tool-actions">
 
-            <a :href="tool.link" class="try-button" :class="{ disabled: tool.status === 'coming-soon' }">
+            <a :href="tool.link" target="_blank" class="try-button" :class="{ disabled: tool.status === 'coming-soon' }">
               {{ tool.status === 'coming-soon' ? '敬请期待' : 'Try it' }}
             </a>
           </div>
