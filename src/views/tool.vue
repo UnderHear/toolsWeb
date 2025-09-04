@@ -43,7 +43,6 @@ interface Tool {
   id: number
   title: string
   description: ToolDescription
-  icon: string
   category: string
   link: string
   status: string
