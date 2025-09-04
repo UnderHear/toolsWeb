@@ -3,8 +3,8 @@
     "id": 1,
     "title": "路径规划器",
     "description": {
-      "zh": "在线路径规划工具，支持多种路径规划算法，帮助用户快速找到最优路径。",
-      "en": "Online path planning tool that supports multiple path planning algorithms, helping users find the optimal path quickly."
+      "zh": "在线路径规划工具，支持多种路径规划算法，包含全覆盖路径算法和最短路径规划算法，上传地图，找到最优路径，支持多种格式地图上传。",
+      "en": "Supports multiple path planning algorithms, including full coverage path algorithms and shortest path planning algorithms. Upload a map and find the optimal path. Multiple map formats are supported for upload."
     },
     "category": "开发工具",
     "link": "#",
