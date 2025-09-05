@@ -65,7 +65,7 @@
 
                     <div class="language-icons">
                         <img src="../assets/index/skillsIcon/typescript-original.svg" class="language-icon" />
-                        <img src="../assets/index/skillsIcon/uniapp.png" class="language-icon" />
+                        <img src="../assets/index/skillsIcon/uniapp.svg" class="language-icon" />
                         <img src="../assets/index/skillsIcon/vuejs-original.svg" class="language-icon" />
                         <img src="../assets/index/skillsIcon/cplusplus-original.svg" class="language-icon" />
                         <img src="../assets/index/skillsIcon/python-original.svg" class="language-icon" />
