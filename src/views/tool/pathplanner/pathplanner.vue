@@ -56,15 +56,15 @@
                 </select>
 
                 <select v-model="algorithm" :disabled="isRunning">
-                  <template v-if="category === 'shortest'">
+                  <div v-if="category === 'shortest'">
                     <option value="bfs">BFS（无权最短）</option>
                     <option value="dijkstra">Dijkstra</option>
                     <option value="astar">A*</option>
-                  </template>
-                  <template v-else>
+                  </div>
+                  <div v-else>
                     <option value="dfs_coverage">DFS 全覆盖</option>
                     <option value="bfs_coverage">BFS 全覆盖</option>
-                  </template>
+                  </div>
                 </select>
               </div>
             </div>

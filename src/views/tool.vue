@@ -94,7 +94,6 @@ onMounted(() => {
 .tool-card {
   background: white;
   border: 1px solid #d1d9e1;
-  border-radius: 8px;
   padding: 2rem;
   display: flex;
   transition: all 0.2s ease;
@@ -103,8 +102,6 @@ onMounted(() => {
 
 .tool-card:hover {
   border-color: #0969da;
-  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.1);
-  transform: translateY(-2px);
 }
 
 .tool-content {
