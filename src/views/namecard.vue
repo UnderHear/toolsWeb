@@ -6,7 +6,7 @@
 		</div>
 
 		<div class="creator-grid">
-			<RouterLink to="/namecard/underhear" class="creator-card">
+			<RouterLink to="/namecard/UnderHear" class="creator-card">
 				<div class="creator-main">
 					<img src="@/views/namecard/UnderHear/assets/index/avatar.png" alt="UnderHear" class="avatar" />
 					<div class="info">

@@ -38,7 +38,7 @@ import { ref, onMounted } from 'vue'
 import TechTag from '@/components/ui-my/tag/TechTag.vue'
 
 // 引入数据
-import projectData from '@/data/json/Projectcard.json'
+import projectData from '@/views/namecard/UnderHear/data/Projectcard.json'
 
 //
 interface ProjectDescription {

@@ -106,7 +106,7 @@
                                 <TechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</TechTag>
                             </div>
                         </div>
-                        <a href="/namecard/project" class="view-more-simple">Read more...</a>
+                        <a href="/namecard/UnderHear/project" class="view-more-simple">Read more...</a>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@ import {IconPark} from '@icon-park/vue-next/es/all';
 
 
 // 引入数据
-import projectData from '@/data/json/Projectcard.json'
+import projectData from '@/views/namecard/UnderHear/data/Projectcard.json'
 
 
 //
