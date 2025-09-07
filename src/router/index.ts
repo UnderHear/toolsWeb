@@ -17,9 +17,14 @@ const routes = [
     component: () => import('@/views/namecard.vue')
   },
   {
-    path: '/namecard/project',
+    path: '/namecard/UnderHear',
+    name: 'UnderHear',
+    component: () => import('@/views/namecard/UnderHear/index.vue')
+  },
+  {
+    path: '/namecard/UnderHear/project',
     name: 'Project',
-    component: () => import('@/views/namecard/project.vue')
+    component: () => import('@/views/namecard/UnderHear/project.vue')
   },
   {
     path: '/tool/pathplanner',
