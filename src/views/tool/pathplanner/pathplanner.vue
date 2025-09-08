@@ -10,24 +10,28 @@
       <aside class="sidebar">
         <div class="controls pathplanner-card">
           <div class="row">
-            <div class="group">
+            <div class="group-l">
               <label>地图尺寸</label>
               <div class="inline">
-                <input type="number" min="5" max="60" v-model.number="rows" :disabled="isRunning" />
+                <input type="number" min="1" max="60" v-model.number="rows" :disabled="isRunning" />
                 <span>×</span>
-                <input type="number" min="5" max="80" v-model.number="cols" :disabled="isRunning" />
-                <button class="btn" @click="resizeGrid" :disabled="isRunning">应用</button>
+                <input type="number" min="1" max="80" v-model.number="cols" :disabled="isRunning" />
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="group">
+            <div class="group-l">
               <label>地图生成</label>
+              <!-- 调整为三行：1) 演示地图 2) 障碍密度滑块 3) 随机/清除按钮 -->
               <div class="inline">
                 <button class="btn" @click="loadDemo" :disabled="isRunning">演示地图</button>
-                <input type="range" min="0" max="60" v-model.number="randomDensity" :disabled="isRunning" />
+              </div>
+              <div class="inline">
+                <input type="range" min="0" max="100" v-model.number="randomDensity" :disabled="isRunning" />
                 <span class="muted">障碍密度 {{ randomDensity }}%</span>
+              </div>
+              <div class="inline">
                 <button class="btn" @click="randomizeObstacles" :disabled="isRunning">随机障碍</button>
                 <button class="btn ghost" @click="clearObstacles" :disabled="isRunning">清除障碍</button>
               </div>
@@ -35,38 +39,47 @@
           </div>
 
           <div class="row">
-            <div class="group">
+            <div class="group-l">
               <label>编辑模式</label>
               <div class="inline">
-                <label class="radio"><input type="radio" value="start" v-model="editMode" :disabled="isRunning" /> 起点</label>
-                <label class="radio"><input type="radio" value="end" v-model="editMode" :disabled="isRunning || isCoverage" /> 终点</label>
-                <label class="radio"><input type="radio" value="wall" v-model="editMode" :disabled="isRunning" /> 障碍</label>
-                <label class="radio"><input type="radio" value="erase" v-model="editMode" :disabled="isRunning" /> 橡皮擦</label>
+                <label class="radio"><input type="radio" value="start" v-model="editMode" :disabled="isRunning" />
+                  起点</label>
+                <label class="radio"><input type="radio" value="end" v-model="editMode"
+                    :disabled="isRunning || isCoverage" /> 终点</label>
+                <label class="radio"><input type="radio" value="wall" v-model="editMode" :disabled="isRunning" />
+                  障碍</label>
+                <label class="radio"><input type="radio" value="erase" v-model="editMode" :disabled="isRunning" />
+                  橡皮擦</label>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="group">
+            <div class="group-l">
               <label>算法选择</label>
               <div class="inline">
-                <select v-model="category" :disabled="isRunning">
-                  <option value="shortest">最短路径</option>
-                  <option value="coverage">全覆盖</option>
-                </select>
+                <MySelect v-model="category" :options="categoryOptions" placeholder="选择类别" :disabled="isRunning"
+                  style="min-width:120px" />
 
-                <select v-model="algorithm" :disabled="isRunning">
-                  <div v-if="category === 'shortest'">
-                    <option value="bfs">BFS（无权最短）</option>
-                    <option value="dijkstra">Dijkstra</option>
-                    <option value="astar">A*</option>
-                  </div>
-                  <div v-else>
-                    <option value="dfs_coverage">DFS 全覆盖</option>
-                    <option value="bfs_coverage">BFS 全覆盖</option>
-                  </div>
-                </select>
+                <MySelect v-model="algorithm" :options="algorithmOptions" placeholder="选择算法" :disabled="isRunning"
+                  style="min-width:150px" />
               </div>
+            </div>
+          </div>
+        </div>
+        <!-- 移动过来的工具栏 -->
+        <div class="toolbar pathplanner-card">
+          <div class="row space-between">
+            <div class="group-r">
+              <button class="btn primary" @click="run" :disabled="!canRun || isRunning">运行</button>
+              <button class="btn danger" @click="stop" :disabled="!isRunning">停止</button>
+              <button class="btn" @click="clearVisited" :disabled="isRunning">清除轨迹</button>
+              <button class="btn ghost" @click="resetAll" :disabled="isRunning">重置</button>
+            </div>
+            <div class="group-r">
+              <input type="range" min="1" max="200" v-model.number="speed" :disabled="isRunning" />
+              <span class="muted">速度{{ speed }} ms / 步</span>
+              <span class="muted" v-if="message">{{ message }}</span>
             </div>
           </div>
         </div>
@@ -74,43 +87,17 @@
 
       <!-- 右侧：工具条 + 画布 + 说明 -->
       <main class="content">
-        <!-- 顶部工具条 -->
-        <div class="toolbar pathplanner-card">
-          <div class="row space-between">
-            <div class="group">
-              <button class="btn primary" @click="run" :disabled="!canRun || isRunning">运行</button>
-              <button class="btn danger" @click="stop" :disabled="!isRunning">停止</button>
-              <button class="btn" @click="clearVisited" :disabled="isRunning">清除轨迹</button>
-              <button class="btn ghost" @click="resetAll" :disabled="isRunning">重置</button>
-            </div>
-            <div class="group">
-              <span class="muted">速度</span>
-              <input type="range" min="1" max="200" v-model.number="speed" :disabled="isRunning" />
-              <span class="muted">{{ speed }}ms/步</span>
-              <span class="muted" v-if="message">{{ message }}</span>
-            </div>
-          </div>
-        </div>
 
         <!-- 矩阵地图 -->
         <div class="grid-wrapper pathplanner-card">
           <div class="grid-inner">
-            <div
-              class="grid"
-              :style="{ gridTemplateColumns: 'repeat(' + cols + ', var(--cell-size))' }"
-              @mouseleave="dragging=false"
-            >
-              <div
-                v-for="cell in flatGrid"
-                :key="cell.row + '-' + cell.col"
-                class="cell"
-                :class="cellClass(cell)"
-                @mousedown.prevent="onCellDown(cell)"
-                @mouseenter.prevent="onCellEnter(cell)"
-                @mouseup.prevent="onCellUp(cell)"
-              >
-                <span v-if="cell.type==='start'" class="badge">S</span>
-                <span v-else-if="cell.type==='end'" class="badge">E</span>
+            <div class="grid" :style="{ gridTemplateColumns: 'repeat(' + cols + ', var(--cell-size))' }"
+              @mouseleave="dragging = false">
+              <div v-for="cell in flatGrid" :key="cell.row + '-' + cell.col" class="cell" :class="cellClass(cell)"
+                @mousedown.prevent="onCellDown(cell)" @mouseenter.prevent="onCellEnter(cell)"
+                @mouseup.prevent="onCellUp(cell)">
+                <span v-if="cell.type === 'start'" class="badge">S</span>
+                <span v-else-if="cell.type === 'end'" class="badge">E</span>
               </div>
             </div>
           </div>
@@ -128,11 +115,12 @@
       </main>
     </div>
   </div>
-  
+
 </template>
 
 <script setup lang="ts">
 import { computed, reactive, ref, watch } from 'vue'
+import MySelect from '@/components/ui-my/select/MySelect.vue'
 
 type CellType = 'empty' | 'wall' | 'start' | 'end'
 type Pos = { row: number; col: number }
@@ -151,6 +139,25 @@ const editMode = ref<'start' | 'end' | 'wall' | 'erase'>('start')
 const category = ref<'shortest' | 'coverage'>('shortest')
 const algorithm = ref('bfs')
 
+// 选项数据
+const categoryOptions = [
+  { value: 'shortest', label: '最短路径' },
+  { value: 'coverage', label: '全覆盖' },
+]
+
+const algorithmOptions = computed(() => {
+  return category.value === 'shortest'
+    ? [
+      { value: 'bfs', label: 'BFS（无权最短）' },
+      { value: 'dijkstra', label: 'Dijkstra' },
+      { value: 'astar', label: 'A*' },
+    ]
+    : [
+      { value: 'dfs_coverage', label: 'DFS 全覆盖' },
+      { value: 'bfs_coverage', label: 'BFS 全覆盖' },
+    ]
+})
+
 const isRunning = ref(false)
 const dragging = ref(false)
 const dragAction = ref<'wall' | 'erase' | null>(null)
@@ -161,7 +168,7 @@ const grid = reactive<Cell[][]>([])
 const startPos = ref<Pos | null>(null)
 const endPos = ref<Pos | null>(null)
 
-// 初始化
+// 初始化 & 重建矩阵
 function createGrid(r: number, c: number) {
   grid.length = 0
   for (let i = 0; i < r; i++) {
@@ -174,6 +181,27 @@ function createGrid(r: number, c: number) {
 }
 
 createGrid(rows.value, cols.value)
+
+// 监听尺寸变化，自动重建（保持矩阵严格矩形）
+let resizing = false
+watch([rows, cols], () => {
+  if (isRunning.value) return // 运行中不允许动态变化
+  if (resizing) return
+  resizing = true
+  const r = Math.max(1, Math.min(60, rows.value))
+  const c = Math.max(1, Math.min(80, cols.value))
+  if (r !== rows.value) rows.value = r
+  if (c !== cols.value) cols.value = c
+  const oldStart = startPos.value
+  const oldEnd = endPos.value
+  createGrid(r, c)
+  startPos.value = null
+  endPos.value = null
+  if (oldStart && oldStart.row < r && oldStart.col < c) setStart(oldStart)
+  if (!isCoverage.value && oldEnd && oldEnd.row < r && oldEnd.col < c) setEnd(oldEnd)
+  clearVisited()
+  resizing = false
+})
 
 watch(category, (val) => {
   if (val === 'coverage') {
@@ -192,21 +220,7 @@ const canRun = computed(() => {
   return !!startPos.value && !!endPos.value
 })
 
-function resizeGrid() {
-  const r = Math.max(5, Math.min(60, rows.value))
-  const c = Math.max(5, Math.min(80, cols.value))
-  rows.value = r
-  cols.value = c
-  const oldStart = startPos.value
-  const oldEnd = endPos.value
-  createGrid(r, c)
-  startPos.value = null
-  endPos.value = null
-  // 尽力保留原起终点（若仍在范围内）
-  if (oldStart && oldStart.row < r && oldStart.col < c) setStart(oldStart)
-  if (oldEnd && oldEnd.row < r && oldEnd.col < c) setEnd(oldEnd)
-  clearVisited()
-}
+// resizeGrid 按钮已移除，逻辑由 watch 自动处理
 
 function clearVisited() {
   for (const row of grid) {
@@ -638,7 +652,9 @@ watch(isCoverage, (v) => {
   transition: all 0.2s ease;
 }
 
-.pathplanner-card + .pathplanner-card { margin-top: 1rem; }
+.pathplanner-card+.pathplanner-card {
+  margin-top: 1rem;
+}
 
 .pathplanner-card:hover {
   border-color: #0969da;
@@ -646,39 +662,167 @@ watch(isCoverage, (v) => {
 }
 
 /* 布局 */
-.layout { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 1rem; align-items: start; }
-.sidebar { position: sticky; top: 1rem; align-self: start; }
-.content { min-width: 0; display: flex; flex-direction: column; gap: 1rem; }
-.toolbar { position: sticky; top: 1rem; z-index: 1; }
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 8rem;
+  align-self: start;
+}
+
+.content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toolbar {
+  /* 现在位于侧边栏内部，不再需要 sticky 定位 */
+  position: static;
+  margin-top: 1rem;
+}
 
 /* 控制面板 */
-.controls { display: flex; flex-direction: column; gap: 0.75rem; }
-.row { display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; align-items: center; }
-.row.space-between { justify-content: space-between; }
-.group { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
-.group > label { font-weight: 600; color: #24292f; }
-.inline { display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 
-input[type='number'] { width: 80px; padding: 0.35rem 0.5rem; border: 1px solid #c9d1d9; border-radius: 6px; }
-select { padding: 0.4rem 0.5rem; border: 1px solid #c9d1d9; border-radius: 6px; background: #fff; }
-input[type='range'] { accent-color: #0969da; }
-.radio { display: inline-flex; gap: 0.35rem; align-items: center; }
-.muted { color: #656d76; font-size: 0.92rem; }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+
+.row.space-between {
+  justify-content: space-between;
+}
+
+.group-l,
+.group-r {
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.group-l {
+  display: grid;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.group-r {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.group-l>label,.group-r>label {
+  font-weight: 600;
+  color: #24292f;
+}
+
+.inline {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input[type='number'] {
+  width: 80px;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #c9d1d9;
+  border-radius: 6px;
+}
+
+select {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #c9d1d9;
+  border-radius: 6px;
+  background: #fff;
+}
+
+input[type='range'] {
+  accent-color: #0969da;
+}
+
+.radio {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.muted {
+  color: #656d76;
+  font-size: 0.92rem;
+}
 
 /* 原生按钮样式 */
-.btn { padding: 0.45rem 0.75rem; border: 1px solid #c9d1d9; background: #f6f8fa; color: #24292f; border-radius: 6px; cursor: pointer; transition: background-color 0.15s ease, filter 0.15s ease, opacity 0.15s ease; }
-.btn:hover { background: #eef2f6; }
-.btn.primary { border-color: #0969da; background: #0969da; color: #fff; }
-.btn.primary:hover { filter: brightness(0.95); }
-.btn.danger { border-color: #dc2626; background: #dc2626; color: #fff; }
-.btn.danger:hover { filter: brightness(0.95); }
-.btn.ghost { background: transparent; }
-.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #c9d1d9;
+  background: #f6f8fa;
+  color: #24292f;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  background: #eef2f6;
+}
+
+.btn.primary {
+  border-color: #0969da;
+  background: #0969da;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  filter: brightness(0.95);
+}
+
+.btn.danger {
+  border-color: #dc2626;
+  background: #dc2626;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  filter: brightness(0.95);
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 
 /* 地图网格 */
-.grid-wrapper { overflow: auto; }
-.grid-inner { width: max-content; padding: 4px; }
+.grid-wrapper {
+  overflow: auto;
+}
+
+.grid-inner {
+  width: max-content;
+  padding: 4px;
+}
+
 .grid {
   --cell-size: 26px;
   display: grid;
@@ -697,13 +841,33 @@ input[type='range'] { accent-color: #0969da; }
   box-sizing: border-box;
   transition: background-color 0.1s ease, transform 0.1s ease, border-color 0.1s ease;
 }
-.cell:hover { transform: scale(1.02); }
 
-.cell.wall { background: #0f172a; border-color: #0f172a; }
-.cell.start { background: #22c55e22; border-color: #16a34a; }
-.cell.end { background: #ef444422; border-color: #ef4444; }
-.cell.visited { background: #93c5fd55; }
-.cell.path { background: #22c55e88; }
+.cell:hover {
+  transform: scale(1.02);
+}
+
+.cell.wall {
+  background: #0f172a;
+  border-color: #0f172a;
+}
+
+.cell.start {
+  background: #22c55e22;
+  border-color: #16a34a;
+}
+
+.cell.end {
+  background: #ef444422;
+  border-color: #ef4444;
+}
+
+.cell.visited {
+  background: #93c5fd55;
+}
+
+.cell.path {
+  background: #22c55e88;
+}
 
 .badge {
   position: absolute;
@@ -721,14 +885,39 @@ input[type='range'] { accent-color: #0969da; }
   font-weight: 600;
   color: #24292f;
 }
-.pathplanner-card ul { margin: 0; padding-left: 1.4rem; }
-.pathplanner-card li { margin-bottom: 0.35rem; color: #24292f; line-height: 1.6; }
+
+.pathplanner-card ul {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.pathplanner-card li {
+  margin-bottom: 0.35rem;
+  color: #24292f;
+  line-height: 1.6;
+}
 
 @media (max-width: 768px) {
-  .pathplanner-container { padding: 1rem; }
-  .pathplanner-title { font-size: 1.75rem; }
-  .layout { grid-template-columns: 1fr; }
-  .sidebar, .toolbar { position: static; }
-  .grid { --cell-size: 22px; gap: 1.5px; }
+  .pathplanner-container {
+    padding: 1rem;
+  }
+
+  .pathplanner-title {
+    font-size: 1.75rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .toolbar {
+    position: static;
+  }
+
+  .grid {
+    --cell-size: 22px;
+    gap: 1.5px;
+  }
 }
 </style>
