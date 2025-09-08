@@ -48,6 +48,8 @@ const open = ref(false)
 const highlightedIndex = ref(-1)
 const listEl = ref<HTMLDivElement | null>(null)
 const idBase = `myselect-${Math.random().toString(36).slice(2)}`
+// 用于区分不同实例，实现互斥展开
+const instanceId = `myselect-inst-${Math.random().toString(36).slice(2)}`
 
 const activeId = computed(() => {
     if (highlightedIndex.value < 0) return undefined
@@ -64,6 +66,8 @@ function toggle() {
     open.value = !open.value
     if (open.value) {
         emit('open')
+    // 通知其他选择框关闭
+    window.dispatchEvent(new CustomEvent('my-select-open', { detail: { id: instanceId } }))
         initHighlight()
         nextTick(() => scrollHighlightedIntoView())
     } else emit('close')
@@ -126,11 +130,23 @@ function handleClickOutside(e: MouseEvent) {
 }
 onMounted(() => {
     document.addEventListener('mousedown', handleClickOutside)
+    // 监听其它实例打开事件
+    window.addEventListener('my-select-open', handleOtherOpen as EventListener)
 })
 onBeforeUnmount(() => {
     document.removeEventListener('mousedown', handleClickOutside)
+    window.removeEventListener('my-select-open', handleOtherOpen as EventListener)
 })
 watch(() => props.disabled, (v) => { if (v) open.value = false })
+
+function handleOtherOpen(e: Event) {
+    const ce = e as CustomEvent<{ id: string }>
+    if (!open.value) return
+    if (ce.detail && ce.detail.id !== instanceId) {
+        open.value = false
+        emit('close')
+    }
+}
 </script>
 
 <style scoped>
