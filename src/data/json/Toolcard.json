@@ -8,7 +8,10 @@
     },
     "category": "开发工具",
     "link": "/tool/pathplanner",
-    "status": "available"
+    "status": "available",
+    "author": "UnderHear",
+  "authorLink": "/namecard/underhear",
+  "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
   },
   {
     "id": 2,
@@ -19,6 +22,9 @@
     },
     "category": "实用工具",
     "link": "#",
-    "status": "coming-soon"
+    "status": "coming-soon",
+    "author": "UnderHear",
+  "authorLink": "/namecard/underhear",
+  "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
   }
 ]

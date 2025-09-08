@@ -2,7 +2,7 @@
   <div class="tool-container">
     <div class="tool-header">
       <h1 class="tool-title">实用工具</h1>
-      <p class="tool-subtitle">这些些工具希望能够帮到你🐱。</p>
+      <p class="tool-subtitle">希望这些工具能够帮到你🐱。</p>
     </div>
 
     <div class="tools-grid">
@@ -17,7 +17,10 @@
             <p class="description-en">{{ tool.description.en }}</p>
           </div>
           <div class="tool-actions">
-
+            <div class="author-info" v-if="tool.author">
+              <img :src="tool.authorAvatar" :alt="tool.author" class="author-avatar" />
+              <a :href="tool.authorLink" class="author-link">{{ tool.author }}</a>
+            </div>
             <a :href="tool.link" target="_blank" class="try-button" :class="{ disabled: tool.status === 'coming-soon' }">
               {{ tool.status === 'coming-soon' ? '敬请期待' : 'Try it' }}
             </a>
@@ -46,12 +49,15 @@ interface Tool {
   category: string
   link: string
   status: string
+  author: string
+  authorLink: string
+  authorAvatar: string
 }
 
 const tools = ref<Tool[]>([])
 
 onMounted(() => {
-  tools.value = toolData
+  tools.value = toolData as any
 })
 </script>
 
@@ -156,9 +162,34 @@ onMounted(() => {
 
 .tool-actions {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  object-fit: cover;
+}
+
+.author-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0969da;
+  text-decoration: underline;
+}
+
+.author-link:hover {
+  text-decoration: underline;
 }
 
 
@@ -225,6 +256,8 @@ onMounted(() => {
     align-items: flex-start;
     gap: 0.75rem;
   }
+  .author-info { order: 2; }
+  .try-button { order: 1; align-self: flex-end; }
 
   .try-button {
     align-self: flex-end;
