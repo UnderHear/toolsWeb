@@ -103,7 +103,7 @@
                                 <p>{{ project.description.en }}</p>
                             </div>
                             <div class="project-tech">
-                                <TechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</TechTag>
+                                <zTechTag v-for="tech in project.technologies" :key="tech">{{ tech }}</zTechTag>
                             </div>
                         </div>
                         <a href="/namecard/UnderHear/project" class="view-more-simple">Read more...</a>
@@ -118,7 +118,7 @@
 import { ref, onMounted } from 'vue'
 
 // 引入图标
-import TechTag from '@/components/ui-my/tag/TechTag.vue'
+import zTechTag from '@/components/ui-my/tag/zTechTag.vue'
 import {IconPark} from '@icon-park/vue-next/es/all';
 
 

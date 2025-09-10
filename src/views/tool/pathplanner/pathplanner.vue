@@ -58,10 +58,10 @@
             <div class="group-l">
               <label>算法选择</label>
               <div class="inline">
-                <MySelect v-model="category" :options="categoryOptions" placeholder="选择类别" :disabled="isRunning"
+                <zSelect v-model="category" :options="categoryOptions" placeholder="选择类别" :disabled="isRunning"
                   style="min-width:120px" />
 
-                <MySelect v-model="algorithm" :options="algorithmOptions" placeholder="选择算法" :disabled="isRunning"
+                <zSelect v-model="algorithm" :options="algorithmOptions" placeholder="选择算法" :disabled="isRunning"
                   style="min-width:150px" />
               </div>
             </div>
@@ -120,7 +120,7 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref, watch } from 'vue'
-import MySelect from '@/components/ui-my/select/MySelect.vue'
+import zSelect from '@/components/ui-my/select/zSelect.vue'
 
 type CellType = 'empty' | 'wall' | 'start' | 'end'
 type Pos = { row: number; col: number }

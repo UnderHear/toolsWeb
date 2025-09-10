@@ -1,20 +1,20 @@
 <template>
-    <div class="my-select" :class="{ disabled, open }" @keydown.stop.prevent="onKeydown" tabindex="0">
-        <button class="my-select-trigger" :disabled="disabled" type="button" @click="toggle"
+    <div class="z-select" :class="{ disabled, open }" @keydown.stop.prevent="onKeydown" tabindex="0">
+        <button class="z-select-trigger" :disabled="disabled" type="button" @click="toggle"
             :aria-expanded="open ? 'true' : 'false'" :aria-haspopup="'listbox'">
-            <span class="my-select-value">{{ selectedLabel || placeholder }}</span>
-            <span class="my-select-arrow" :class="{ rotate: open }">
+            <span class="z-select-value">{{ selectedLabel || placeholder }}</span>
+            <span class="z-select-arrow" :class="{ rotate: open }">
                 <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16">
                     <path
                         d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z" />
                 </svg>
             </span>
         </button>
-        <transition name="my-select-fade">
-            <div v-if="open" class="my-select-dropdown" role="listbox" :aria-activedescendant="activeId">
-                <div ref="listEl" class="my-select-options">
+        <transition name="z-select-fade">
+            <div v-if="open" class="z-select-dropdown" role="listbox" :aria-activedescendant="activeId">
+                <div ref="listEl" class="z-select-options">
                     <div v-for="(option, idx) in options" :id="idBase + '-' + option.value" :key="option.value"
-                        class="my-select-option" :class="{
+                        class="z-select-option" :class="{
                             selected: option.value === modelValue,
                             active: idx === highlightedIndex,
                         }" role="option" :aria-selected="option.value === modelValue ? 'true' : 'false'"
@@ -47,9 +47,9 @@ const emit = defineEmits(['update:modelValue', 'open', 'close'])
 const open = ref(false)
 const highlightedIndex = ref(-1)
 const listEl = ref<HTMLDivElement | null>(null)
-const idBase = `myselect-${Math.random().toString(36).slice(2)}`
+const idBase = `zselect-${Math.random().toString(36).slice(2)}`
 // 用于区分不同实例，实现互斥展开
-const instanceId = `myselect-inst-${Math.random().toString(36).slice(2)}`
+const instanceId = `zselect-inst-${Math.random().toString(36).slice(2)}`
 
 const activeId = computed(() => {
     if (highlightedIndex.value < 0) return undefined
@@ -67,7 +67,7 @@ function toggle() {
     if (open.value) {
         emit('open')
     // 通知其他选择框关闭
-    window.dispatchEvent(new CustomEvent('my-select-open', { detail: { id: instanceId } }))
+    window.dispatchEvent(new CustomEvent('z-select-open', { detail: { id: instanceId } }))
         initHighlight()
         nextTick(() => scrollHighlightedIntoView())
     } else emit('close')
@@ -123,7 +123,7 @@ function onKeydown(e: KeyboardEvent) {
     }
 }
 function handleClickOutside(e: MouseEvent) {
-    if (!(e.target as HTMLElement).closest('.my-select')) {
+    if (!(e.target as HTMLElement).closest('.z-select')) {
         if (open.value) emit('close')
         open.value = false
     }
@@ -131,11 +131,11 @@ function handleClickOutside(e: MouseEvent) {
 onMounted(() => {
     document.addEventListener('mousedown', handleClickOutside)
     // 监听其它实例打开事件
-    window.addEventListener('my-select-open', handleOtherOpen as EventListener)
+    window.addEventListener('z-select-open', handleOtherOpen as EventListener)
 })
 onBeforeUnmount(() => {
     document.removeEventListener('mousedown', handleClickOutside)
-    window.removeEventListener('my-select-open', handleOtherOpen as EventListener)
+    window.removeEventListener('z-select-open', handleOtherOpen as EventListener)
 })
 watch(() => props.disabled, (v) => { if (v) open.value = false })
 
@@ -150,16 +150,16 @@ function handleOtherOpen(e: Event) {
 </script>
 
 <style scoped>
-.my-select {
+.z-select {
     position: relative;
     min-width: 0px !important;
 }
 
-.my-select:focus {
+.z-select:focus {
     outline: none;
 }
 
-.my-select-trigger {
+.z-select-trigger {
     width: auto;
     /* 由内容撑开 */
     padding: 0.42rem 0.75rem;
@@ -180,24 +180,24 @@ function handleOtherOpen(e: Event) {
     /* 不换行 */
 }
 
-.my-select.open .my-select-trigger,
-.my-select-trigger:hover {
+.z-select.open .z-select-trigger,
+.z-select-trigger:hover {
     border-color: #0969da;
 }
 
 
-.my-select-trigger:disabled {
+.z-select-trigger:disabled {
     opacity: 0.55;
     cursor: not-allowed;
 }
 
-.my-select-value {
+.z-select-value {
     flex: 0 0 auto;
     /* 不强制拉伸 */
     white-space: nowrap;
 }
 
-.my-select-arrow {
+.z-select-arrow {
     margin-left: auto;
     font-size: 0.9em;
     color: #656d76;
@@ -205,11 +205,11 @@ function handleOtherOpen(e: Event) {
     transition: transform .18s ease;
 }
 
-.my-select-arrow.rotate {
+.z-select-arrow.rotate {
     transform: rotate(180deg);
 }
 
-.my-select-dropdown {
+.z-select-dropdown {
     position: absolute;
     left: 0;
     top: calc(100% + 4px);
@@ -225,7 +225,7 @@ function handleOtherOpen(e: Event) {
     overflow: hidden;
 }
 
-.my-select-options {
+.z-select-options {
     margin: 0;
     padding: 8px;
     max-height: 220px;
@@ -235,7 +235,7 @@ function handleOtherOpen(e: Event) {
     gap: 4px;
 }
 
-.my-select-option {
+.z-select-option {
     position: relative;
     padding: 0.5em 1em;
     cursor: pointer;
@@ -249,44 +249,44 @@ function handleOtherOpen(e: Event) {
     border-radius: 4px;
 }
 
-.my-select-option.active:not(.selected) {
+.z-select-option.active:not(.selected) {
     background: #F2F3F4;
 }
 
-.my-select-option.selected {
+.z-select-option.selected {
     background: #F2F3F4;
     color: #25292e;
 }
 
-.my-select-option.selected .check {
+.z-select-option.selected .check {
     margin-left: auto;
     font-size: .8rem;
 }
 
-.my-select-option:hover {
+.z-select-option:hover {
     background: #e6ebf1;
 }
 
-.my-select.disabled .my-select-trigger {
+.z-select.disabled .z-select-trigger {
     opacity: 0.55;
     cursor: not-allowed;
 }
 
 /* 过渡 */
-.my-select-fade-enter-active,
-.my-select-fade-leave-active {
+.z-select-fade-enter-active,
+.z-select-fade-leave-active {
     transition: opacity .12s ease, transform .12s ease;
     transform-origin: top;
 }
 
-.my-select-fade-enter-from,
-.my-select-fade-leave-to {
+.z-select-fade-enter-from,
+.z-select-fade-leave-to {
     opacity: 0;
     transform: scale(.98);
 }
 
-.my-select-fade-enter-to,
-.my-select-fade-leave-from {
+.z-select-fade-enter-to,
+.z-select-fade-leave-from {
     opacity: 1;
     transform: scale(1);
 }
