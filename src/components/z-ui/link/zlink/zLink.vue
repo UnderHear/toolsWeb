@@ -66,7 +66,6 @@ withDefaults(defineProps<Props>(), {
 .z-link:hover {
   color: #0550ae;
   text-decoration: underline;
-  background-color: rgba(9, 105, 218, 0.05);
 }
 
 .z-link:active {
@@ -80,7 +79,6 @@ withDefaults(defineProps<Props>(), {
 
 .z-link-primary:hover {
   color: #0550ae;
-  background-color: rgba(9, 105, 218, 0.05);
 }
 
 .z-link-secondary {
@@ -89,7 +87,6 @@ withDefaults(defineProps<Props>(), {
 
 .z-link-secondary:hover {
   color: #24292f;
-  background-color: rgba(101, 109, 118, 0.05);
 }
 
 .z-link-danger {
@@ -98,7 +95,6 @@ withDefaults(defineProps<Props>(), {
 
 .z-link-danger:hover {
   color: #a40e26;
-  background-color: rgba(209, 36, 47, 0.05);
 }
 
 /* 外部链接样式 */
@@ -106,7 +102,6 @@ withDefaults(defineProps<Props>(), {
   content: '↗';
   font-size: 0.8em;
   margin-left: 2px;
-  opacity: 0.7;
 }
 
 /* 焦点样式 */
