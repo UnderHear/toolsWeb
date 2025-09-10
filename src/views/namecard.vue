@@ -3,7 +3,9 @@
 		<div class="namecard-header">
 			<h1 class="title">创作者名片</h1>
 			<p class="subtitle">这里展示本站创作者 / 贡献者的个人名片。点击进入详情页面了解更多。</p>
-			<p class="subtitle">你也想加入？前往<zLink href="https://github.com/UnderHear/toolsWeb" link-text="本项目的GitHub" :external="true" />页！</p>
+			<p class="subtitle">你也想加入？前往
+				<zLink href="https://github.com/UnderHear/toolsWeb" link-text="本项目的GitHub" :external="true" />页！
+			</p>
 		</div>
 
 		<div class="creator-grid">
@@ -15,8 +17,11 @@
 							<h3 class="name">UnderHear</h3>
 							<span class="role">原始创作者</span>
 						</div>
-						<p class="bio-en">Be interested in cutting-edge, advanced, and popular technologies and keep exploring them.</p>
-						<p class="bio-zh">对前沿、先进和热门的技术感兴趣并保持探索。</p>
+						<div class="bio">
+							<p class="bio-en">Be interested in cutting-edge, advanced, and popular technologies and keep
+								exploring them.</p>
+							<p class="bio-zh">对前沿、先进和热门的技术感兴趣并保持探索。</p>
+						</div>
 					</div>
 				</div>
 				<div class="card-footer">
@@ -81,7 +86,7 @@ import { zLink } from '@/components/z-ui/link/zlink'
 
 .creator-card:hover {
 	border-color: #0969da;
-	box-shadow: 0 4px 14px -4px rgba(0,0,0,0.08);
+	box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.08);
 }
 
 .creator-main {
@@ -98,7 +103,10 @@ import { zLink } from '@/components/z-ui/link/zlink'
 	border: 1px solid #d1d9e0;
 }
 
-.info { flex: 1; min-width: 0; }
+.info {
+	flex: 1;
+	min-width: 0;
+}
 
 .name-row {
 	display: flex;
@@ -126,14 +134,18 @@ import { zLink } from '@/components/z-ui/link/zlink'
 	line-height: 1;
 }
 
-.bio-zh, .bio-en {
+.bio-zh,
+.bio-en {
 	margin: 0 0 .5rem;
 	font-size: .85rem;
 	line-height: 1.5;
 	color: #24292f;
 }
 
-.bio-zh { color: #656d76; font-style: italic; }
+.bio-zh {
+	color: #656d76;
+	font-style: italic;
+}
 
 
 .card-footer {
@@ -145,19 +157,48 @@ import { zLink } from '@/components/z-ui/link/zlink'
 	font-size: 1rem;
 	font-weight: 600;
 	color: #0969da;
-	background: #f6f8fa;
 	padding: .35rem .7rem;
 	border-radius: 6px;
 	transition: background .18s ease;
 }
 
-.creator-card:hover .enter { background: #e9f2fb; }
-
 @media (max-width: 768px) {
-	.namecard-wrapper { padding: 1.2rem 1rem; }
-	.title { font-size: 2rem; }
-	.creator-main { flex-direction: row; }
-	.avatar { width: 72px; height: 72px; }
-	.bio-zh, .bio-en { font-size: .8rem; }
+	.namecard-wrapper {
+		padding: 1rem;
+	}
+
+	.name-row {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+
+	.creator-main {
+		flex-direction: row;
+	}
+
+	.creator-main {
+		gap: 12px;
+	}
+
+	.avatar {
+		width: 64px;
+		height: 64px;
+	}
+
+	.bio{
+		position: relative;
+		left: -76px;
+		top: 10px;
+		width: calc(100% + 76px);
+	}
+
+	.bio-zh,
+	.bio-en {
+		font-size: .8rem;
+	}
 }
 </style>
