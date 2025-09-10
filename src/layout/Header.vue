@@ -40,7 +40,8 @@ const route = useRoute()
 const navigationItems = ref<NavigationItem[]>([
   { name: '首页', href: '/', active: true },
   { name: '工具', href: '/tool', active: false },
-  { name: '名片', href: '/namecard', active: false },
+  { name: '组件', href: '/component', active: false },
+  { name: '名片', href: '/namecard', active: false }
 ])
 
 // Update active state based on current route

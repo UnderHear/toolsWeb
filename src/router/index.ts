@@ -12,6 +12,11 @@ const routes = [
     component: () => import('@/views/tool.vue')
   },
   {
+    path: '/component',
+    name: 'Component',
+    component: () => import('@/views/components.vue')
+  },
+  {
     path: '/namecard',
     name: 'Namecard',
     component: () => import('@/views/namecard.vue')
