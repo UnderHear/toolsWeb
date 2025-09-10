@@ -5,7 +5,7 @@
     max-md:mx-auto max-md:rounded-[24px] max-md:shadow-none">
     <div class="flex h-20 items-center justify-center max-md:h-fit py-[6px] px-[8px]">
       <nav>
-        <ul class="flex space-x-6">
+        <ul class="flex space-x-6 max-md:space-x-3">
           <li v-for="item in navigationItems" :key="item.name">
             <div :class="[
               'px-2.5 py-2 rounded-md text-[16px] font-medium leading-none flex items-center max-md:rounded-[16px] max-md:px-3 cursor-pointer',
