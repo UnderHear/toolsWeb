@@ -3,7 +3,7 @@
 		<div class="namecard-header">
 			<h1 class="title">创作者名片</h1>
 			<p class="subtitle">这里展示本站创作者 / 贡献者的个人名片。点击进入详情页面了解更多。</p>
-			<p class="subtitle">你也想加入？前往<a href="https://github.com/UnderHear-Project/UnderHear">本项目的GitHub</a>页！</p>
+			<p class="subtitle">你也想加入？前往<zLink href="https://github.com/UnderHear-Project/UnderHear" link-text="本项目的GitHub" :external="true" />页！</p>
 		</div>
 
 		<div class="creator-grid">
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-
+import { zLink } from '@/components/z-ui/link/zlink'
 </script>
 
 <style scoped>

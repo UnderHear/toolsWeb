@@ -120,7 +120,7 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref, watch } from 'vue'
-import zSelect from '@/components/ui-my/select/zSelect.vue'
+import {zSelect} from '@/components/z-ui/select/zSelect'
 
 type CellType = 'empty' | 'wall' | 'start' | 'end'
 type Pos = { row: number; col: number }

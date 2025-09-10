@@ -35,7 +35,7 @@
 import { ref, onMounted } from 'vue'
 
 // 引入图标
-import zTechTag from '@/components/ui-my/tag/zTechTag.vue'
+import {zTechTag} from '@/components/z-ui/tag/zTechTag/'
 
 // 引入数据
 import projectData from '@/views/namecard/UnderHear/data/Projectcard.json'

@@ -118,7 +118,7 @@
 import { ref, onMounted } from 'vue'
 
 // 引入图标
-import zTechTag from '@/components/ui-my/tag/zTechTag.vue'
+import {zTechTag} from '@/components/z-ui/tag/zTechTag/'
 import {IconPark} from '@icon-park/vue-next/es/all';
 
 
