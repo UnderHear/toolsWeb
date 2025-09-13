@@ -40,7 +40,14 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(_to, _from, savedPosition) {
+    // 如果有保存的位置，使用它；否则滚动到顶部
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { top: 0 }
+  }
 })
 
 export default router
