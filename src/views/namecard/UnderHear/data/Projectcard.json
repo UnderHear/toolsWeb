@@ -4,10 +4,10 @@
     "title": "浙江数字金融科技联合会官网 ZAFT",
     "date": "2025.07 - 2025.08",
     "description": {
-      "zh": "基于Vue3+Vite开发，个人完成的定制化企业官网。通过Docker部署在阿里云ECS Ubuntu上。",
-      "en": "ZAFT is a customized corporate website developed using Vue3. It features modern and responsive design, as well as a range of interactive elements to enhance the user experience. The website is built using Vue3, Vue Router, and Tailwind CSS, and deployed on Alibaba Cloud through Docker."
+      "zh": "基于Vue3+Vite+Node.js开发，个人完成的定制化企业官网。通过Docker部署在阿里云ECS Ubuntu上，使用宝塔面板管理运维，使用Node.js快速对json文件进行编辑，达到管理数据的目的。",
+      "en": "A customized corporate website developed using Vue3+Vite+Node.js, personally completed. Deployed on Alibaba Cloud ECS Ubuntu using Docker, managed and maintained with Baota Panel, and utilizing Node.js for quick editing of JSON files to manage data."
     },
-    "technologies": ["Vue3", "Vite", "Vue Router", "JavaScript", "Ubuntu", "Nginx", "Node.js", "PM2", "Docker"],
+    "technologies": ["Vue3", "Vite", "Vue Router", "JavaScript", "Ubuntu", "Nginx", "Node.js", "PM2", "Docker", "Alibaba Cloud ECS", "宝塔面板", "Node.js"],
     "projectLink": "#",
     "weblink": "https://www.z-aft.com",
     "projectType": "个人项目",
@@ -21,7 +21,7 @@
       "zh": "第八届中国高校智能机器人创意大赛主题三 竞技D，基于ROS预留的接口在动态地图中设计最优的全覆盖路径规划算法。",
       "en": "The 8th China University Intelligent Robot Creative Competition Theme 3 Competition D, designing optimal full-coverage path planning algorithms in dynamic maps based on ROS reserved interfaces."
     },
-    "technologies": ["ROS", "Rviz", "Gazebo", "Python", "Matlab", "Ubuntu", "Vmware"],
+    "technologies": ["path planning", "ROS", "Rviz", "Gazebo", "Python", "Matlab", "Ubuntu", "Vmware"],
     "projectLink": "#",
     "weblink": "",
     "projectType": "个人项目",
