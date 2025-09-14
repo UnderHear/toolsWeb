@@ -15,10 +15,10 @@
   },
   {
     "id": 2,
-    "title": "二维码生成器",
+    "title": "PNG、JPG转SVG",
     "description": {
-      "zh": "快速生成各种类型的二维码，支持文本、链接、WiFi等多种内容格式。",
-      "en": "Quickly generate various types of QR codes with support for text, links, WiFi and other content formats."
+      "zh": "将PNG、JPG等位图格式转换为SVG矢量图格式。",
+      "en": "Convert bitmap formats such as PNG and JPG to SVG vector format."
     },
     "category": "实用工具",
     "link": "#",

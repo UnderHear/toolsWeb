@@ -35,7 +35,7 @@
 import { ref, onMounted } from 'vue'
 
 // 引入数据
-import toolData from '@/data/json/Toolcard.json'
+import toolData from '@/views/tool/Toolcard.json'
 
 interface ToolDescription {
   zh: string
