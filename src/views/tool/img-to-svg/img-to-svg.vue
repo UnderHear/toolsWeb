@@ -126,11 +126,11 @@ async function convert() {
     ctx.drawImage(img, 0, 0)
     const imageData = ctx.getImageData(0, 0, width, height)
     // 1) 颜色量化
-    const quantized = quantize(imageData.data, colors.value)
+  const quantized = quantize(imageData.data, colors.value)
     // 2) 分区与路径追踪
-    const paths = tracePaths(quantized, width, height, minArea.value, pathTolerance.value)
+  const paths = tracePaths(quantized, width, height, minArea.value, pathTolerance.value)
     // 3) 生成 SVG
-    svgContent.value = buildSvg(paths, width, height)
+  svgContent.value = buildSvg(paths, width, height, quantized.palette)
   } catch (e) {
     console.error(e)
     error.value = '转换失败：' + (e as Error).message
@@ -154,56 +154,70 @@ function loadImage(src: string) {
   })
 }
 
-// 简单颜色量化 (k-means 替代：用 median-cut 近似) 这里用简化版本：随机采样 + 迭代收敛
+// 改进：K-Means 颜色量化（限制采样数），更稳定的聚类
 function quantize(data: Uint8ClampedArray, k: number) {
-  // 采样
+  const total = data.length / 4
+  const maxSamples = Math.min(5000, total)
+  const step = Math.max(1, Math.floor(total / maxSamples))
   const samples: number[][] = []
-  for (let i = 0; i < data.length; i += 4 * 24) { // 间隔采样
+  for (let i = 0; i < data.length; i += 4 * step) {
     samples.push([data[i], data[i + 1], data[i + 2]])
   }
-  // 初始化中心
-  const centers = samples.slice(0, k)
+  // 初始化：随机 + 均匀抽取
+  const centers: number[][] = []
+  const usedIdx = new Set<number>()
+  while (centers.length < k && centers.length < samples.length) {
+    const idx = Math.floor(Math.random() * samples.length)
+    if (!usedIdx.has(idx)) { centers.push([...samples[idx]]); usedIdx.add(idx) }
+  }
   const dist = (a: number[], b: number[]) => {
     const dx = a[0] - b[0]; const dy = a[1] - b[1]; const dz = a[2] - b[2]
     return dx * dx + dy * dy + dz * dz
   }
-  for (let iter = 0; iter < 8; iter++) {
-    const clusters: number[][][] = Array.from({ length: k }, () => [])
+  const MAX_ITER = 12
+  for (let iter = 0; iter < MAX_ITER; iter++) {
+    const clusters: number[][][] = Array.from({ length: centers.length }, () => [])
     for (const s of samples) {
       let best = 0, bd = Infinity
-      for (let c = 0; c < k; c++) {
+      for (let c = 0; c < centers.length; c++) {
         const d = dist(s, centers[c])
         if (d < bd) { bd = d; best = c }
       }
       clusters[best].push(s)
     }
-    for (let c = 0; c < k; c++) {
+    let moved = 0
+    for (let c = 0; c < centers.length; c++) {
       const cl = clusters[c]
       if (!cl.length) continue
       let r = 0, g = 0, b = 0
       for (const p of cl) { r += p[0]; g += p[1]; b += p[2] }
-      centers[c] = [Math.round(r / cl.length), Math.round(g / cl.length), Math.round(b / cl.length)]
+      const nr = Math.round(r / cl.length), ng = Math.round(g / cl.length), nb = Math.round(b / cl.length)
+      if (nr !== centers[c][0] || ng !== centers[c][1] || nb !== centers[c][2]) moved++
+      centers[c] = [nr, ng, nb]
     }
+    if (!moved) break
   }
-  // 应用到整张图
-  const out = new Uint8ClampedArray(data.length / 4)
-  for (let i = 0; i < data.length; i += 4) {
+  // 应用到整图
+  const out = new Uint8ClampedArray(total)
+  for (let p = 0, i = 0; p < total; p++, i += 4) {
     const pix = [data[i], data[i + 1], data[i + 2]]
     let best = 0, bd = Infinity
-    for (let c = 0; c < k; c++) {
+    for (let c = 0; c < centers.length; c++) {
       const d = dist(pix, centers[c])
       if (d < bd) { bd = d; best = c }
     }
-    out[i / 4] = best
+    out[p] = best
   }
   return { index: out, palette: centers }
 }
 
-
+// 轮廓追踪：对每个区域 flood fill 收集像素 -> 边界提取 -> 8方向跟踪 -> RDP 简化
 function tracePaths(q: { index: Uint8ClampedArray; palette: number[][] }, w: number, h: number, minArea: number, tolerance: number) {
   const visited = new Uint8Array(q.index.length)
   const paths: { color: number; outline: [number, number][] }[] = []
-  const dirs = [[1,0],[-1,0],[0,1],[0,-1]]
+  const dirs4 = [[1,0],[-1,0],[0,1],[0,-1]]
+  const dirs8 = [[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]]
+
   function flood(x: number, y: number, col: number) {
     const stack = [[x,y]]
     const pts: [number, number][] = []
@@ -211,79 +225,116 @@ function tracePaths(q: { index: Uint8ClampedArray; palette: number[][] }, w: num
     while (stack.length) {
       const [cx, cy] = stack.pop()!
       pts.push([cx, cy])
-      for (const [dx, dy] of dirs) {
+      for (const [dx, dy] of dirs4) {
         const nx = cx + dx, ny = cy + dy
         if (nx>=0 && nx<w && ny>=0 && ny<h) {
           const idx = ny * w + nx
-          if (!visited[idx] && q.index[idx] === col) {
-            visited[idx] = 1
-            stack.push([nx, ny])
-          }
+          if (!visited[idx] && q.index[idx] === col) { visited[idx] = 1; stack.push([nx, ny]) }
         }
       }
     }
     return pts
   }
-  function simplify(points: [number, number][]) {
-    // 粗略边界：取点集合的凸包 (Graham scan)
-    if (points.length < 3) return points
-    points.sort((a,b)=> a[0]===b[0]? a[1]-b[1]: a[0]-b[0])
-    const cross = (o:[number,number], a:[number,number], b:[number,number]) => (a[0]-o[0])*(b[1]-o[1]) - (a[1]-o[1])*(b[0]-o[0])
-    const lower:[number,number][]=[]
-    for (const p of points) {
-      while (lower.length>=2 && cross(lower[lower.length-2], lower[lower.length-1], p) <= 0) lower.pop()
-      lower.push(p)
+
+  function isEdge(x: number, y: number, col: number) {
+    for (const [dx, dy] of dirs4) {
+      const nx = x + dx, ny = y + dy
+      if (nx<0 || nx>=w || ny<0 || ny>=h) return true
+      const idx = ny * w + nx
+      if (q.index[idx] !== col) return true
     }
-    const upper:[number,number][]=[]
-    for (let i=points.length-1;i>=0;i--) {
-      const p=points[i]
-      while (upper.length>=2 && cross(upper[upper.length-2], upper[upper.length-1], p) <= 0) upper.pop()
-      upper.push(p)
-    }
-    upper.pop(); lower.pop()
-    const hull = lower.concat(upper)
-    // 再做一次基于容差的抽稀
-    if (tolerance <= 0) return hull
-    const simplified:[number,number][]= []
-    for (let i=0;i<hull.length;i++) {
-      const prev = hull[(i-1+hull.length)%hull.length]
-      const cur = hull[i]
-      const next = hull[(i+1)%hull.length]
-      const area = Math.abs(prev[0]* (cur[1]-next[1]) + cur[0]*(next[1]-prev[1]) + next[0]*(prev[1]-cur[1]))/2
-      if (area > tolerance) simplified.push(cur)
-    }
-    return simplified.length>=3? simplified : hull
+    return false
   }
+
+  function extractBoundary(pixels: [number, number][], col: number) {
+    // 找到最上最左的边界点作为起点
+    let start: [number, number] | null = null
+    const set = new Set(pixels.map(p => p[0] + ',' + p[1]))
+    for (const [x,y] of pixels) {
+      if (isEdge(x,y,col)) {
+        if (!start || y < start[1] || (y === start[1] && x < start[0])) start = [x,y]
+      }
+    }
+    if (!start) return pixels
+    const boundary: [number, number][] = []
+    const visitedEdge = new Set<string>()
+    let cx = start[0], cy = start[1]
+    let prevDir = 0
+    for (let step=0; step < 80000; step++) { // 安全阈值
+      const key = cx+','+cy
+      boundary.push([cx,cy])
+      visitedEdge.add(key)
+      let found = false
+      for (let i=0;i<dirs8.length;i++) {
+        // 方向起点偏移：优先继续原方向附近
+        const dirIndex = (prevDir + i) % dirs8.length
+        const [dx,dy] = dirs8[dirIndex]
+        const nx = cx + dx, ny = cy + dy
+        if (nx<0||nx>=w||ny<0||ny>=h) continue
+        if (!set.has(nx+','+ny)) continue
+        if (!isEdge(nx,ny,col)) continue
+        const nkey = nx+','+ny
+        if (boundary.length>8 && nx===start![0] && ny===start![1]) { found = false; break }
+        if (!visitedEdge.has(nkey) || boundary.length < 10) {
+          cx = nx; cy = ny; prevDir = dirIndex; found = true; break
+        }
+      }
+      if (!found) break
+      if (boundary.length>4 && cx===start[0] && cy===start[1]) break
+    }
+    return boundary
+  }
+
+  function rdp(points: [number, number][], eps: number): [number, number][] {
+    if (points.length <= 2) return points.slice()
+    const dmaxInfo = { idx: -1, dist: 0 }
+    const [sx, sy] = points[0]
+    const [ex, ey] = points[points.length -1]
+    const denom = Math.hypot(ex - sx, ey - sy) || 1
+    for (let i=1;i<points.length-1;i++) {
+      const [px,py]=points[i]
+      const area = Math.abs((sx* (py-ey) + px*(ey-sy) + ex*(sy-py)))/2
+      const dist = (area*2)/denom
+      if (dist > dmaxInfo.dist) { dmaxInfo.dist = dist; dmaxInfo.idx = i }
+    }
+    if (dmaxInfo.dist > eps) {
+      const left = rdp(points.slice(0, dmaxInfo.idx+1), eps)
+      const right = rdp(points.slice(dmaxInfo.idx), eps)
+      return left.slice(0,-1).concat(right)
+    } else {
+      return [points[0], points[points.length-1]]
+    }
+  }
+
   for (let y=0;y<h;y++) {
     for (let x=0;x<w;x++) {
       const idx = y*w + x
       if (visited[idx]) continue
       const col = q.index[idx]
-      const pts = flood(x,y,col)
-      if (pts.length < minArea) continue
-      const outline = simplify(pts)
-      paths.push({ color: col, outline })
+      const region = flood(x,y,col)
+      if (region.length < minArea) continue
+      const boundary = extractBoundary(region, col)
+      const simplified = rdp(boundary, tolerance)
+      paths.push({ color: col, outline: simplified })
     }
   }
   return paths
 }
 
-function buildSvg(paths: { color: number; outline: [number, number][] }[], w: number, h: number) {
+function buildSvg(paths: { color: number; outline: [number, number][] }[], w: number, h: number, palette: number[][]) {
   if (!paths.length) return ''
-  const maxColor = colors.value
-  const palette = paths.reduce((acc, p) => acc.add(p.color), new Set<number>())
-  const used = Array.from(palette)
-  const colorMap = new Map<number, string>()
-  for (const c of used) {
-    // 给每个颜色一个 HEX (简单映射：色相按索引均分)
-    const hue = Math.round((c / maxColor) * 360)
-    colorMap.set(c, `hsl(${hue} 70% 50%)`)
+  // 使用聚类中心的真实 RGB 颜色
+  const toHex = (v:number) => v.toString(16).padStart(2,'0')
+  const colorOf = (idx:number) => {
+    const c = palette[idx] || [0,0,0]
+    return '#' + toHex(c[0]) + toHex(c[1]) + toHex(c[2])
   }
   const pathStr = paths.map(p => {
     const o = p.outline
-    if (o.length < 2) return ''
+    if (!o || o.length < 2) return ''
     const d = 'M' + o.map(pt => pt[0] + ' ' + pt[1]).join('L') + 'Z'
-    return `<path d="${d}" fill="${colorMap.get(p.color)}" stroke="${colorMap.get(p.color)}" stroke-width="1" />`
+    const fill = colorOf(p.color)
+    return `<path d="${d}" fill="${fill}" stroke="${fill}" stroke-width="1" />`
   }).join('\n')
   return `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${w} ${h}' shape-rendering='geometricPrecision'>\n${pathStr}\n</svg>`
 }
