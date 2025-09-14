@@ -21,8 +21,8 @@
       "en": "Convert bitmap formats such as PNG and JPG to SVG vector format."
     },
     "category": "实用工具",
-    "link": "#",
-    "status": "coming-soon",
+  "link": "/tool/img-to-svg",
+  "status": "available",
     "author": "UnderHear",
   "authorLink": "/namecard/underhear",
   "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
