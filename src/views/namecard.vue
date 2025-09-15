@@ -4,7 +4,7 @@
 			<h1 class="title">创作者名片</h1>
 			<p class="subtitle">这里展示本站创作者 / 贡献者的个人名片。点击进入详情页面了解更多。</p>
 			<p class="subtitle">你也想加入？前往
-				<zLink href="https://github.com/UnderHear/toolsWeb" link-text="本项目的GitHub" :external="true" />页！
+				<zLink href="https://github.com/UnderHear/toolsWeb" link-text="本项目的GitHub" target="_blank" :external="true" />页！
 			</p>
 		</div>
 
@@ -42,7 +42,6 @@ import { zLink } from '@/components/z-ui/link/zlink'
 	margin: 0 auto;
 	padding: 2rem;
 	background: #fff;
-	min-height: 100vh;
 }
 
 .namecard-header {

@@ -621,7 +621,6 @@ watch(isCoverage, (v) => {
   margin: 0 auto;
   padding: 2rem;
   background-color: #fff;
-  min-height: 100vh;
 }
 
 .pathplanner-header {

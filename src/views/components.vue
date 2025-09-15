@@ -1,16 +1,17 @@
 <template>
   <div class="components-wrapper">
     <div class="components-header">
-      <h1 class="title">UI 组件库</h1>
+      <h1 class="title">UI 组件库 zLight</h1>
       <p class="subtitle">这里展示本站自研的 UI 组件库，提供现代化、美观且易用的组件。</p>
       <p class="subtitle">所有组件都经过精心设计，支持 TypeScript 并遵循最佳实践。</p>
+      <zLink href="/component/overview" link-text="立即前往" />
       <img src="@/assets/components0.png" alt="Components Preview" class="components-preview" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
+import { zLink } from '@/components/z-ui/link/zlink'
 </script>
 
 <style scoped>
@@ -18,8 +19,8 @@
   max-width: 1150px;
   margin: 0 auto;
   padding: 2rem;
-  background: #fff;
   min-height: 100vh;
+  background: #fff;
 }
 
 .components-header {
@@ -45,8 +46,9 @@
 
 .components-preview {
   display: block;
-  margin: 1.5rem auto 0; /* 水平居中 */
+  margin: 1.5rem auto 0;
   width: 552px;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {

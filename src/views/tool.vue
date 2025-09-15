@@ -67,7 +67,6 @@ onMounted(() => {
   margin: 0 auto;
   padding: 2rem;
   background-color: #fff;
-  min-height: 100vh;
 }
 
 .tool-header {

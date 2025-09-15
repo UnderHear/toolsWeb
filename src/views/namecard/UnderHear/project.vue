@@ -86,7 +86,6 @@ const getStatusClass = (status: string) => {
 	margin: 0 auto;
 	padding: 2rem;
 	background-color: #fff;
-	min-height: 100vh;
 }
 
 .project-header {

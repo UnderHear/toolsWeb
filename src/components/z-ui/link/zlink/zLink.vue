@@ -4,7 +4,7 @@
     <a 
       :href="href" 
       :target="target" 
-      :rel="external ? 'noopener noreferrer' : undefined"
+      :rel="(external || target === '_blank') ? 'noopener noreferrer' : undefined"
       class="z-link"
       :class="{
         'z-link-external': external,
@@ -39,7 +39,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   external: false,
-  target: '_blank',
+  target: '_self',
   variant: 'primary'
 })
 </script>
