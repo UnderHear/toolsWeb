@@ -11,7 +11,7 @@
 import { computed, provide, inject, type InjectionKey } from 'vue'
 
 // 类型定义
-interface ThemeConfig {
+export interface ThemeConfig {
   primaryColor?: string
   backgroundColor?: string
   textColor?: string
@@ -19,13 +19,13 @@ interface ThemeConfig {
   [key: string]: any
 }
 
-interface LocaleConfig {
+export interface LocaleConfig {
   locale: string
   messages?: Record<string, string>
   [key: string]: any
 }
 
-interface ZIndexConfig {
+export interface ZIndexConfig {
   modal?: number
   drawer?: number
   message?: number
@@ -34,7 +34,7 @@ interface ZIndexConfig {
   [key: string]: any
 }
 
-interface ConfigProviderConfig {
+export interface ConfigProviderConfig {
   theme?: 'light' | 'dark' | ThemeConfig
   size?: 'small' | 'medium' | 'large'
   locale?: 'zh-CN' | 'en-US' | LocaleConfig
@@ -54,7 +54,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // 注入键
-const CONFIG_PROVIDER_KEY: InjectionKey<ConfigProviderConfig> = Symbol('configProvider')
+export const CONFIG_PROVIDER_KEY: InjectionKey<ConfigProviderConfig> = Symbol('configProvider')
 
 // 获取父级配置
 const parentConfig = inject(CONFIG_PROVIDER_KEY, {})
@@ -130,12 +130,6 @@ const configProviderStyle = computed(() => {
 defineExpose({
   config: mergedConfig
 })
-</script>
-
-<script lang="ts">
-// 导出类型和注入键供其他组件使用
-export type { ConfigProviderConfig, ThemeConfig, LocaleConfig, ZIndexConfig }
-export { CONFIG_PROVIDER_KEY }
 
 // 提供 hook 函数供其他组件使用
 export function useConfigProvider() {

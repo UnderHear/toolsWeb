@@ -380,6 +380,7 @@ import { ref } from 'vue'
 import ZCheckbox from '@/components/z-ui/checkbox/zCheckbox/zCheckbox.vue'
 import ZCheckboxGroup from '@/components/z-ui/checkbox/zCheckboxGroup/zCheckboxGroup.vue'
 import ZCheckboxButton from '@/components/z-ui/checkbox/zCheckboxButton/zCheckboxButton.vue'
+import type { CheckboxModelValue } from '@/components/z-ui/checkbox/types'
 
 // 基础用法
 const checked1 = ref(true)
@@ -397,13 +398,15 @@ const checkedCities = ref(['上海', '北京'])
 const cities = ['上海', '北京', '广州', '深圳']
 const isIndeterminate = ref(true)
 
-const handleCheckAllChange = (val: boolean) => {
-  checkedCities.value = val ? cities : []
+const handleCheckAllChange = (value: any) => {
+  // 确保value被视为布尔值
+  const checked = !!value
+  checkedCities.value = checked ? cities : []
   isIndeterminate.value = false
 }
 
-const handleCheckedCitiesChange = (value: string[]) => {
-  const checkedCount = value.length
+const handleCheckedCitiesChange = (value: CheckboxModelValue) => {
+  const checkedCount = Array.isArray(value) ? value.length : 0
   checkAll.value = checkedCount === cities.length
   isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length
 }

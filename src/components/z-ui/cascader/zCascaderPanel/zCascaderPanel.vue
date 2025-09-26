@@ -336,10 +336,10 @@ const loadChildren = async (node: CascaderNode) => {
   })
 }
 
-const handleCheckChange = (node: CascaderNode, event: { target: { checked: boolean } }) => {
+const handleCheckChange = (node: CascaderNode, event: Event) => {
+  const target = event.target as HTMLInputElement
+  const checked = target.checked
   if (!isMultiple.value) return
-  
-  const checked = event.target.checked
   
   if (checked) {
     if (!selectedNodes.value.includes(node)) {

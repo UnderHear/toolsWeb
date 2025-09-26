@@ -16,10 +16,10 @@
 
 <script setup lang="ts">
 import { computed, nextTick, provide, toRefs, watch } from 'vue'
-import type { CheckboxGroupContext } from '../types'
+import type { CheckboxGroupContext, CheckboxModelValue, CheckboxValueType } from '../types'
 
 interface CheckboxGroupProps {
-  modelValue?: (string | number | boolean)[]
+  modelValue?: CheckboxModelValue
   disabled?: boolean
   min?: number
   max?: number
@@ -30,8 +30,8 @@ interface CheckboxGroupProps {
 }
 
 interface CheckboxGroupEmits {
-  (e: 'update:modelValue', value: (string | number | boolean)[]): void
-  (e: 'change', value: (string | number | boolean)[]): void
+  (e: 'update:modelValue', value: CheckboxModelValue): void
+  (e: 'change', value: CheckboxModelValue): void
 }
 
 const props = withDefaults(defineProps<CheckboxGroupProps>(), {
@@ -46,20 +46,8 @@ const emit = defineEmits<CheckboxGroupEmits>()
 // 解构 props
 const { modelValue, disabled, min, max, size, textColor, fill } = toRefs(props)
 
-// 计算属性
-const isLimitExceeded = computed(() => {
-  if (!min?.value && !max?.value) return false
-  
-  const currentLength = modelValue.value.length
-  
-  return (
-    (max?.value && currentLength >= max.value) ||
-    (min?.value && currentLength <= min.value)
-  )
-})
-
 // 方法
-const changeEvent = (value: (string | number | boolean)[]) => {
+const changeEvent = (value: CheckboxValueType[]) => {
   emit('update:modelValue', value)
   nextTick(() => {
     emit('change', value)
@@ -68,7 +56,7 @@ const changeEvent = (value: (string | number | boolean)[]) => {
 
 // 提供给子组件的上下文
 const checkboxGroupContext: CheckboxGroupContext = {
-  modelValue: computed(() => modelValue.value),
+  modelValue: computed(() => modelValue.value as CheckboxValueType[]),
   disabled: computed(() => disabled.value),
   min: computed(() => min?.value),
   max: computed(() => max?.value),

@@ -145,7 +145,7 @@ const handleTouchStart = (event: TouchEvent) => {
   document.addEventListener('touchend', handleTouchEnd)
 }
 
-const startResize = (clientX: number, clientY: number) => {
+const startResize = (_clientX: number, _clientY: number) => {
   isResizing.value = true
   emit('resizeStart')
   

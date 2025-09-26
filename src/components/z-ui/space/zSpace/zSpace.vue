@@ -43,7 +43,8 @@ const items = computed(() => {
   if (!defaultSlot) return []
   
   return defaultSlot.filter((item: VNode) => {
-    return item.type !== Comment && item.type !== Text || (item.children && String(item.children).trim())
+    return item.type !== Comment && item.type !== Text || 
+           (item.type === Text && item.children && String(item.children).trim())
   })
 })
 

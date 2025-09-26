@@ -60,11 +60,11 @@
           <template #option="{ option }">
             <div class="custom-option">
               <div class="option-avatar">
-                {{ option.name.charAt(0) }}
+                {{ typeof option === 'object' ? option.name.charAt(0) : option.charAt(0) }}
               </div>
               <div class="option-content">
-                <div class="option-name">{{ option.name }}</div>
-                <div class="option-email">{{ option.email }}</div>
+                <div class="option-name">{{ typeof option === 'object' ? option.name : option }}</div>
+                <div class="option-email">{{ typeof option === 'object' ? option.email : '' }}</div>
               </div>
             </div>
           </template>
@@ -285,7 +285,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import ZAutocomplete from '@/components/z-ui/autocomplete/zAutocomplete/zAutocomplete.vue'
 
 // 基础用法
@@ -314,8 +314,10 @@ const filterOptions = [
   'Java'
 ]
 
-const customFilter = (query: string, option: string) => {
-  return option.toLowerCase().includes(query.toLowerCase())
+const customFilter = (query: string, option: any) => {
+  // 确保option被转换为字符串进行比较
+  const optionStr = typeof option === 'string' ? option : option.label || option.value || String(option)
+  return optionStr.toLowerCase().includes(query.toLowerCase())
 }
 
 // 远程搜索

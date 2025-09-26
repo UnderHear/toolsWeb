@@ -170,7 +170,7 @@
           </ZSpace>
         </div>
         <div class="demo-code">
-          <pre><code>&lt;ZSpace wrap&gt;
+          <pre><code v-pre>&lt;ZSpace wrap&gt;
   &lt;ZButton v-for="i in 20" :key="i"&gt;按钮{{ i }}&lt;/ZButton&gt;
 &lt;/ZSpace&gt;</code></pre>
         </div>

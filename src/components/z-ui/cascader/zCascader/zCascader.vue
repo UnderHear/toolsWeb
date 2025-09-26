@@ -17,7 +17,7 @@
   >
     <div class="z-cascader__tags" v-if="isMultiple && selectedNodes.length">
       <span 
-        v-for="(node, index) in displayTags"
+        v-for="node in displayTags"
         :key="node.uid"
         class="z-cascader__tag"
       >

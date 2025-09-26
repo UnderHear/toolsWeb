@@ -51,21 +51,21 @@
 
 <script setup lang="ts">
 import { computed, inject, nextTick, ref } from 'vue'
-import type { CheckboxGroupContext } from '../types'
+import type { CheckboxGroupContext, CheckboxModelValue, CheckboxValueType } from '../types'
 
 interface CheckboxButtonProps {
-  modelValue?: string | number | boolean
-  label?: string | number | boolean | object
+  modelValue?: CheckboxModelValue
+  label?: CheckboxValueType | object
   disabled?: boolean
   checked?: boolean
   name?: string
-  trueLabel?: string | number
-  falseLabel?: string | number
+  trueLabel?: CheckboxValueType
+  falseLabel?: CheckboxValueType
 }
 
 interface CheckboxButtonEmits {
-  (e: 'update:modelValue', value: string | number | boolean | (string | number | boolean)[]): void
-  (e: 'change', value: string | number | boolean | (string | number | boolean)[]): void
+  (e: 'update:modelValue', value: CheckboxModelValue): void
+  (e: 'change', value: CheckboxModelValue): void
 }
 
 const props = withDefaults(defineProps<CheckboxButtonProps>(), {
@@ -76,7 +76,7 @@ const props = withDefaults(defineProps<CheckboxButtonProps>(), {
 const emit = defineEmits<CheckboxButtonEmits>()
 
 // 注入 checkbox-group 上下文
-const checkboxGroup = inject<CheckboxGroupContext>('CheckboxGroup', undefined)
+const checkboxGroup = inject<CheckboxGroupContext | null>('CheckboxGroup', null)
 
 // 响应式数据
 const focus = ref(false)
@@ -87,7 +87,7 @@ const checkbox = ref<HTMLInputElement>()
 const isGroup = computed(() => !!checkboxGroup)
 
 const isDisabled = computed(() => {
-  return props.disabled || (checkboxGroup?.disabled ?? false)
+  return props.disabled || (checkboxGroup?.disabled?.value ?? false)
 })
 
 const size = computed(() => {
@@ -97,14 +97,22 @@ const size = computed(() => {
 const model = computed({
   get() {
     return isGroup.value
-      ? checkboxGroup!.modelValue
+      ? checkboxGroup!.modelValue.value
       : props.modelValue !== undefined
       ? props.modelValue
       : selfModel.value
   },
   set(val) {
     if (isGroup.value) {
-      checkboxGroup!.changeEvent(val)
+      // 确保传递给changeEvent的值是CheckboxValueType[]类型
+      const valueToEmit = Array.isArray(val)
+        ? val
+        : typeof val === 'boolean'
+        ? val
+          ? [props.label as string | number | boolean]
+          : []
+        : []
+      checkboxGroup!.changeEvent(valueToEmit)
     } else {
       emit('update:modelValue', val)
       selfModel.value = val as boolean
@@ -126,23 +134,28 @@ const isChecked = computed(() => {
 const activeStyle = computed(() => {
   if (!checkboxGroup) return {}
   
+  // 确保正确访问ComputedRef的值
+  const fillColor = checkboxGroup.fill.value
+  const textColor = checkboxGroup.textColor.value
+  
   return {
-    backgroundColor: checkboxGroup.fill?.value || '#409EFF',
-    borderColor: checkboxGroup.fill?.value || '#409EFF',
-    color: checkboxGroup.textColor?.value || '#ffffff',
-    boxShadow: '-1px 0 0 0 ' + (checkboxGroup.fill?.value || '#409EFF')
+    backgroundColor: fillColor,
+    borderColor: fillColor,
+    color: textColor,
+    boxShadow: `-1px 0 0 0 ${fillColor}`
   }
 })
 
 const isLimitExceeded = computed(() => {
-  if (!checkboxGroup || !checkboxGroup.max || !checkboxGroup.min) return false
+  if (!checkboxGroup || !checkboxGroup.max || !checkboxGroup.max.value || !checkboxGroup.min || !checkboxGroup.min.value || !checkboxGroup.modelValue) return false
   
-  const { max, min } = checkboxGroup
-  const modelValue = checkboxGroup.modelValue as (string | number | boolean)[]
+  const maxValue = checkboxGroup.max.value
+  const minValue = checkboxGroup.min.value
+  const modelValue = checkboxGroup.modelValue.value
   
   return (
-    (modelValue.length >= max && !isChecked.value) ||
-    (modelValue.length <= min && isChecked.value)
+    (modelValue.length >= maxValue && !isChecked.value) ||
+    (modelValue.length <= minValue && isChecked.value)
   )
 })
 
@@ -151,23 +164,28 @@ const handleChange = (evt: Event) => {
   if (isLimitExceeded.value) return
   
   const target = evt.target as HTMLInputElement
-  let value: string | number | boolean | (string | number | boolean)[] = target.checked
+  let value: CheckboxModelValue = target.checked
   
   if (Array.isArray(model.value)) {
-    const newValue = [...model.value]
+    const newValue = [...model.value] as CheckboxValueType[]
+    const labelValue = props.label as CheckboxValueType
+    
     if (target.checked) {
-      if (!newValue.includes(props.label as string | number | boolean)) {
-        newValue.push(props.label as string | number | boolean)
+      if (!newValue.includes(labelValue)) {
+        newValue.push(labelValue)
       }
     } else {
-      const index = newValue.indexOf(props.label as string | number | boolean)
+      const index = newValue.indexOf(labelValue)
       if (index > -1) {
         newValue.splice(index, 1)
       }
     }
     value = newValue
   } else {
-    value = target.checked ? props.trueLabel || true : props.falseLabel || false
+    // 正确处理trueLabel和falseLabel的类型
+    value = target.checked 
+      ? (props.trueLabel !== undefined ? props.trueLabel : true) 
+      : (props.falseLabel !== undefined ? props.falseLabel : false)
   }
   
   emit('change', value)

@@ -365,7 +365,7 @@ const handleCompositionEnd = (event: CompositionEvent) => {
   handleInput(event)
 }
 
-const handleSelect = (option: OptionType, index: number) => {
+const handleSelect = (option: OptionType, _index: number) => {
   if (isOptionDisabled(option)) return
   
   const value = getOptionValue(option)
