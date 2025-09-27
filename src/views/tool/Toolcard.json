@@ -10,8 +10,8 @@
     "link": "/tool/pathplanner",
     "status": "available",
     "author": "UnderHear",
-  "authorLink": "/namecard/underhear",
-  "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
+    "authorLink": "/namecard/underhear",
+    "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
   },
   {
     "id": 2,
@@ -21,10 +21,10 @@
       "en": "Convert bitmap formats such as PNG and JPG to SVG vector format."
     },
     "category": "实用工具",
-  "link": "/tool/img-to-svg",
-  "status": "available",
+    "link": "/tool/img-to-svg",
+    "status": "available",
     "author": "UnderHear",
-  "authorLink": "/namecard/underhear",
-  "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
+    "authorLink": "/namecard/underhear",
+    "authorAvatar": "src/views/namecard/UnderHear/assets/index/avatar.png"
   }
 ]
